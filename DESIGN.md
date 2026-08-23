@@ -91,6 +91,15 @@ Real bug, caught from screenshots: the bottom-center glass control pill (prev/do
 
 Fix: `.carousel-slide::after`'s `background` is now two stacked gradients — the existing left-to-right one for the text column, plus a second `linear-gradient(0deg, ...black 60%... 0%, transparent 26%)` that guarantees a dark wash across the bottom ~26% of every slide, regardless of what's in the photo there. The white glass pill sits well inside that zone (it's at `bottom:20px`, pill height ~50px, always < 26% of the carousel's height at any breakpoint). Don't remove this bottom gradient layer without re-verifying every slide's photo — the whole point is it doesn't depend on what's in the image.
 
+## Product detail lightbox (added in the real Next.js build, 2026-08-23)
+
+The static mockup era of this doc (see the search-suggestions note below) said "no per-product detail page exists on this portfolio site" — that's now superseded. Once the real site moved to `products.json`'s `product → photos[]` model, a `ProductLightbox` component was added: clicking a shop card opens a modal showing all of that product's photos, reusing the same prev/dots/next control pill pattern (`.carousel-arrow`/`.carousel-controls`) as the Home carousel, on purpose — one interaction pattern for "browse multiple photos," not two.
+
+Two real bugs found from a screenshot after this shipped, both now fixed:
+
+- **Same white-glass-pill-on-light-photo bug as the Home carousel (see above), but in a second place.** `.lightbox-media` (the image pane inside the lightbox) had no dark bottom-vignette gradient behind the controls — unlike `.carousel-slide::after`, which is what makes the *identical* control-pill markup look crisp on Home. Same code, worse contrast, because the surrounding treatment wasn't ported over. Fixed with a matching `.lightbox-media::after` (`z-index:1`, bottom-vignette gradient only — no diagonal text-legibility layer needed here since the lightbox has no text over the photo). Lesson: this control-pill pattern is **not self-contained** — every place it's reused needs its own guaranteed-dark backdrop, don't assume the pill alone is enough.
+- **Close button overlapped the "N / M" photo counter.** `.lightbox-close` is `position:absolute; top:16px; right:16px` relative to the whole `.lightbox-dialog`, but `.lightbox-info`'s own padding (`clamp(24px,4vw,36px)`) wasn't wide enough to keep the right-aligned counter text clear of the button's footprint (38px wide + 16px offset). Fixed with `padding-right: 48px` on `.lightbox-category-row` specifically, not the whole info panel — only the row that shares vertical space with the close button needs the clearance.
+
 ## Footer and search suggestions (2026-08-23)
 
 - Footer no longer carries the "Design preview for @yukiandnice · pages: Home · Shop · About me · not yet built" caption — owner flagged it directly, removed outright. Footer is now just the "Nice Crochet" text mark, nothing else.
