@@ -29,8 +29,9 @@ HEIC is not web-deliverable — Chrome/Firefox won't render it in `<img>`. Conve
    - card (~600px) — shop grid
    - hero (~1600px) — carousel
 3. **Deterministic naming** (agy) — the script must sanitize source filenames (lowercase, kebab-case, strip spaces/special chars) so product IDs and `products.json` photo references stay clean and predictable, not derived from whatever the camera/HEIC export named the file.
-4. **Do not commit the HEIC originals.** ~538MB of never-diffing binaries. Derived WebP output is ~20–40MB total. Originals stay local-only (gitignored), derived assets are what ships in `public/images/`.
-5. Re-run `build-images.sh` whenever new source photos are added — it's the only path from `PRODUCTS/*.HEIC` to shippable assets, never hand-export individual files.
+4. **EXIF orientation must be baked in before resizing** (found 2026-08-23, see DESIGN.md) — neither `sips -s format jpeg` nor `cwebp` applies a photo's EXIF orientation flag on its own, so portrait phone photos (stored as landscape pixels + an orientation tag) ship sideways/tilted unless corrected first. The script runs every image through `PIL.ImageOps.exif_transpose()` before it ever reaches `cwebp`.
+5. **Do not commit the HEIC originals.** ~538MB of never-diffing binaries. Derived WebP output is ~20–40MB total. Originals stay local-only (gitignored), derived assets are what ships in `public/images/`.
+6. Re-run `build-images.sh` whenever new source photos are added — it's the only path from `PRODUCTS/*.HEIC` to shippable assets, never hand-export individual files.
 
 ## Data model: catalog, not file list
 
