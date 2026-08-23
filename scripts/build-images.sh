@@ -60,6 +60,18 @@ for f in "$SOURCE_DIR"/*; do
     input_for_cwebp="$temp_jpg"
   fi
 
+  # Bake in EXIF orientation before resizing — neither sips's format conversion
+  # nor cwebp applies the orientation flag on its own, so portrait phone photos
+  # (stored as landscape pixels + an orientation tag) ship sideways/tilted
+  # unless this runs. cwebp reads plain pixels, so this must happen first.
+  oriented_jpg="$TEMP_DIR/${clean_name}-oriented.jpg"
+  python3 -c "
+from PIL import Image, ImageOps
+img = ImageOps.exif_transpose(Image.open('$input_for_cwebp'))
+img.save('$oriented_jpg', quality=95)
+"
+  input_for_cwebp="$oriented_jpg"
+
   # Generate 3 WebP sizes
   cwebp -quiet -q 80 -resize 72 0 "$input_for_cwebp" -o "$OUT_DIR/thumb/$target_webp"
   cwebp -quiet -q 82 -resize 600 0 "$input_for_cwebp" -o "$OUT_DIR/card/$target_webp"

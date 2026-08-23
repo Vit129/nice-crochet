@@ -447,7 +447,10 @@ nav.pages button:focus-visible {
 
 /* ================= SHOP / SHELF ================= */
 .shop-head {
-  padding: clamp(36px, 6vw, 64px) 0 24px;
+  /* top/bottom only — a shorthand `padding` here would zero out the
+     horizontal padding .wrap already sets on this same element */
+  padding-top: clamp(36px, 6vw, 64px);
+  padding-bottom: 24px;
 }
 
 .toolbar {
@@ -597,7 +600,10 @@ nav.pages button:focus-visible {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 36px;
-  padding: 28px 0 90px;
+  /* top/bottom only — a shorthand `padding` here would zero out the
+     horizontal padding .wrap already sets on this same element */
+  padding-top: 28px;
+  padding-bottom: 90px;
   align-items: start;
 }
 
