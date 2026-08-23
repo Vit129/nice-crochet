@@ -1,0 +1,20 @@
+# Raw source photos (~538MB, local only - never commit)
+PRODUCTS/
+*.HEIC
+*.heic
+
+# Dependencies
+node_modules/
+
+# Next.js build and export outputs
+.next/
+out/
+
+# Claude / Gemini agent artifacts & worktrees
+agent-memory/
+.claude/worktrees/
+
+# OS / Editor files
+.DS_Store
+*.pem
+.env*.local

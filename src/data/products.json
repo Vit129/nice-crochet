@@ -1,0 +1,119 @@
+[
+  {
+    "id": "cherry-bucket-tote",
+    "name": "Cherry Bucket Tote",
+    "category": "Market totes & bags",
+    "colours": ["Cherry"],
+    "photos": ["red-tote-1.webp", "in-hand.webp"],
+    "alt": "Handmade crochet cherry red bucket tote bag held in hand",
+    "description": "A classic bucket tote hand-looped in rich cherry red yarn, with sturdy integrated handles."
+  },
+  {
+    "id": "mustard-market-tote",
+    "name": "Mustard Market Tote",
+    "category": "Market totes & bags",
+    "colours": ["Mustard"],
+    "photos": ["mustard-tote-1.webp"],
+    "alt": "Mustard yellow crochet open-weave market tote bag",
+    "description": "Open lattice-weave tote in warm mustard gold, ideal as a breathable everyday carry-all."
+  },
+  {
+    "id": "camel-bucket-tote",
+    "name": "Camel Bucket Tote",
+    "category": "Market totes & bags",
+    "colours": ["Camel"],
+    "photos": ["camel-tote-1.webp"],
+    "alt": "Earthy camel brown crochet bucket tote with dual straps",
+    "description": "Dense stitch tote in warm camel brown with reinforced shoulder straps."
+  },
+  {
+    "id": "cherry-rectangle-tote",
+    "name": "Cherry Rectangle Tote",
+    "category": "Market totes & bags",
+    "colours": ["Cherry"],
+    "photos": ["red-tote-2.webp"],
+    "alt": "Structured cherry red rectangular crochet tote bag",
+    "description": "Flat-bottom rectangular market tote in deep cherry red."
+  },
+  {
+    "id": "lattice-two-tone-tote",
+    "name": "Lattice Two-Tone Tote",
+    "category": "Market totes & bags",
+    "colours": ["Mustard"],
+    "photos": ["lattice-yellow-tote.webp", "texture-macro.webp"],
+    "alt": "Mustard and cream two-tone lattice weave crochet tote",
+    "description": "Signature two-tone lattice pattern with contrast yellow top trim and textured stitch work."
+  },
+  {
+    "id": "tan-mini-market-bag",
+    "name": "Tan Mini Market Bag",
+    "category": "Market totes & bags",
+    "colours": ["Tan"],
+    "photos": ["tan-mini-tote.webp"],
+    "alt": "Compact tan beige crochet mini tote bag",
+    "description": "A petite market bag crafted in neutral tan yarn for quick errands and light carry."
+  },
+  {
+    "id": "tan-tote-with-flower",
+    "name": "Tan Tote with Flower",
+    "category": "Market totes & bags",
+    "colours": ["Tan"],
+    "photos": ["tan-flower-tote.webp"],
+    "alt": "Tan crochet tote bag accented with signature crochet flower charm",
+    "description": "Everyday neutral tan tote adorned with a signature handcrafted flower accent."
+  },
+  {
+    "id": "charcoal-mesh-tote",
+    "name": "Charcoal Mesh Tote",
+    "category": "Market totes & bags",
+    "colours": ["Charcoal"],
+    "photos": ["charcoal-tote.webp"],
+    "alt": "Charcoal grey open mesh crochet market tote",
+    "description": "Airy, expandable mesh tote in deep charcoal grey yarn."
+  },
+  {
+    "id": "sage-plum-tote-pair",
+    "name": "Sage & Plum Tote Pair",
+    "category": "Market totes & bags",
+    "colours": ["Camel"],
+    "photos": ["sage-plum-pair.webp"],
+    "alt": "Pair of hand-crocheted market totes in earthy sage and plum tones",
+    "description": "Complementary pair of market totes showcasing organic earthy colorways."
+  },
+  {
+    "id": "cherry-flap-pouch",
+    "name": "Cherry Flap Pouch",
+    "category": "Pouches & purses",
+    "colours": ["Cherry"],
+    "photos": ["red-pouch.webp"],
+    "alt": "Cherry red crochet flap pouch with button loop closure",
+    "description": "Compact pouch with folded flap and delicate loop-and-button closure in cherry yarn."
+  },
+  {
+    "id": "mustard-leaf-flap-pouch",
+    "name": "Mustard Leaf-Flap Pouch",
+    "category": "Pouches & purses",
+    "colours": ["Mustard"],
+    "photos": ["mustard-pouch.webp"],
+    "alt": "Mustard yellow crochet pouch with botanical leaf flap",
+    "description": "Small accessory pouch with hand-looped organic flap detail."
+  },
+  {
+    "id": "two-tone-card-holder",
+    "name": "Two-Tone Card Holder",
+    "category": "Card holders",
+    "colours": ["Camel"],
+    "photos": ["card-holders.webp"],
+    "alt": "Two-tone crochet card holder wallet with tab closure",
+    "description": "Pocket-sized flap-tab card wallet crafted in dual-tone camel and cream stitches."
+  },
+  {
+    "id": "cherry-sky-flower-charm",
+    "name": "Cherry & Sky Flower Charm",
+    "category": "Flower charms",
+    "colours": ["Cherry"],
+    "photos": ["flower-charm.webp", "flower-detail.webp"],
+    "alt": "Crochet flower charm keychain with sky blue loop",
+    "description": "Signature handmade crochet blossom charm with delicate petals and hanging loop."
+  }
+]
