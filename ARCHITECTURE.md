@@ -56,7 +56,11 @@ This keeps catalog growth bounded-effort regardless of volume: drop photos → r
 
 ## Hosting
 
-Static export → any static host, free tier (Vercel/Netlify/Cloudflare Pages/GitHub Pages all work identically since there's no server-side behavior at all). No decision blocking here; pick whichever the owner already has an account with.
+**Deployed: GitHub Pages**, `https://vit129.github.io/nice-crochet/`, via `.github/workflows/pages.yml` (build on push to `main` + manual dispatch).
+
+Real constraint hit during setup: GitHub Pages on a **private** repo requires a paid plan (GitHub Pro+) — Free-tier personal accounts can only serve Pages from a **public** repo. The user chose to make the repo public over paying for Pro (2026-08-23), matching the same pattern already used by `QA-Automation-Coding-Course` (also public, despite its casual "private repo" framing in conversation — worth double-checking, not assuming, next time this comes up on a different project).
+
+**GitHub Pages project-site subpath requires `basePath`.** A project site is served at `/nice-crochet/`, not `/` — Next.js's own `_next/*` asset loading respects `basePath`/`assetPrefix` automatically, but hand-written `<img src="/images/...">` and CSS `background-image: url(...)` do not. Fixed via `src/lib/basePath.ts` (`assetPath()` helper, reads `NEXT_PUBLIC_BASE_PATH` at build time) applied everywhere an image path is constructed (`ResponsiveImage`, `HeroCarousel`, `Topbar`, `layout.tsx` favicon). The env var is only set in the Pages workflow — local dev and any other static host (Vercel/Netlify/Cloudflare Pages, still viable per the original hosting-agnostic decision above) build with no base path, unaffected.
 
 ## Porting the mockup (not rebuilding)
 
