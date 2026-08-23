@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { assetPath } from '@/lib/basePath';
 
 interface TopbarProps {
   activePage: 'home' | 'shop' | 'about';
@@ -31,12 +32,11 @@ export const Topbar: React.FC<TopbarProps> = ({ activePage, onNavigate }) => {
         >
           <img
             className="brand-lockup"
-            src="/images/logo-topbar.png"
+            src={assetPath('/images/logo-topbar.png')}
             alt="Nice Crochet"
             width={124}
             height={38}
           />
-          <span className="preview-badge">Design preview</span>
         </button>
         <nav className="pages" aria-label="Pages">
           <button

@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetPath } from '@/lib/basePath';
 
 interface ResponsiveImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   filename: string;
@@ -20,7 +21,7 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   if (filename.startsWith('/') || filename.startsWith('http') || filename.startsWith('data:')) {
     return (
       <img
-        src={filename}
+        src={filename.startsWith('/') ? assetPath(filename) : filename}
         alt={alt}
         className={className}
         loading={priority ? 'eager' : 'lazy'}
@@ -31,9 +32,9 @@ export const ResponsiveImage: React.FC<ResponsiveImageProps> = ({
   }
 
   // Pre-sized WebP paths
-  const thumbSrc = `/images/thumb/${filename}`;
-  const cardSrc = `/images/card/${filename}`;
-  const heroSrc = `/images/hero/${filename}`;
+  const thumbSrc = assetPath(`/images/thumb/${filename}`);
+  const cardSrc = assetPath(`/images/card/${filename}`);
+  const heroSrc = assetPath(`/images/hero/${filename}`);
 
   let defaultSrc = cardSrc;
   let srcSet: string | undefined = `${thumbSrc} 72w, ${cardSrc} 600w, ${heroSrc} 1600w`;

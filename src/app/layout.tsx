@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { assetPath } from '@/lib/basePath';
 
 export const metadata: Metadata = {
   title: 'Nice Crochet — Handmade with love',
   description:
     'Handmade crochet portfolio and showcase for @yukiandnice on TikTok. Market totes, pouches, card holders, and flower charms.',
   icons: {
-    icon: '/images/logo-topbar.png',
+    icon: assetPath('/images/logo-topbar.png'),
   },
 };
 

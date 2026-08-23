@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ProductCategory } from '@/types/product';
+import { assetPath } from '@/lib/basePath';
 
 interface Slide {
   image: string;
@@ -114,7 +115,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onSelectCategory }) 
           <div
             key={slide.label}
             className={`carousel-slide ${isActive ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ backgroundImage: `url(${assetPath(slide.image)})` }}
             aria-hidden={!isActive}
           >
             <div className="carousel-copy">
