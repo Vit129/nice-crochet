@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ProductCategory } from '@/types/product';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { Product, ProductCategory } from '@/types/product';
 import { assetPath } from '@/lib/basePath';
 
 interface Slide {
-  image: string;
+  /** Filename fallback used only if no showOnHome-flagged product exists for this category yet. */
+  fallbackImage: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -16,7 +17,7 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    image: '/images/hero/lattice-yellow-tote.webp',
+    fallbackImage: 'lattice-yellow-tote.webp',
     eyebrow: 'Handmade with love',
     title: 'Every piece hand‑looped, never mass‑made.',
     description: "Market totes turn a single skein into a proper carry-all — the same pieces you've seen on @yukiandnice.",
@@ -25,7 +26,7 @@ const SLIDES: Slide[] = [
     label: 'Slide 1: Totes',
   },
   {
-    image: '/images/hero/mustard-pouch.webp',
+    fallbackImage: 'mustard-pouch.webp',
     eyebrow: 'The essentials',
     title: 'Small enough for everyday.',
     description: 'Pouches and purses, closed with a hand-looped button loop — no zippers, no hardware.',
@@ -34,7 +35,7 @@ const SLIDES: Slide[] = [
     label: 'Slide 2: Pouches',
   },
   {
-    image: '/images/hero/card-holders.webp',
+    fallbackImage: 'card-holders.webp',
     eyebrow: 'Carry less',
     title: 'One card holder, two colourways.',
     description: 'A flap-tab closure, finished with a pom-pom or a flower charm keychain.',
@@ -43,7 +44,7 @@ const SLIDES: Slide[] = [
     label: 'Slide 3: Card holders',
   },
   {
-    image: '/images/hero/flower-charm.webp',
+    fallbackImage: 'flower-charm.webp',
     eyebrow: 'The signature',
     title: 'Finished with a flower.',
     description: 'The crochet flower that shows up across the whole shelf — also sold on its own as a charm.',
@@ -54,13 +55,29 @@ const SLIDES: Slide[] = [
 ];
 
 interface HeroCarouselProps {
+  products: Product[];
   onSelectCategory: (category: ProductCategory) => void;
 }
 
-export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onSelectCategory }) => {
+/** Filenames of every showOnHome-flagged product's primary photo, per category —
+ *  falls back to the single hardcoded image if nothing's flagged for that category yet. */
+function useSlideImagePools(products: Product[]) {
+  return useMemo(() => {
+    return SLIDES.map((slide) => {
+      const pool = products
+        .filter((p) => p.category === slide.category && p.showOnHome && p.photos[0])
+        .map((p) => p.photos[0]);
+      return pool.length > 0 ? pool : [slide.fallbackImage];
+    });
+  }, [products]);
+}
+
+export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCategory }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [bgIndex, setBgIndex] = useState(0);
   const touchStartXRef = useRef<number | null>(null);
+  const imagePools = useSlideImagePools(products);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
@@ -80,6 +97,28 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onSelectCategory }) 
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
+
+  // Reset to the pool's first photo whenever we land on a new slide.
+  useEffect(() => {
+    setBgIndex(0);
+  }, [currentIndex]);
+
+  // While a slide with more than one flagged photo is active, quietly cycle
+  // its background through the pool — gives repeat visitors visible variety
+  // without adding a second, competing carousel UI.
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const pool = imagePools[currentIndex];
+    if (prefersReducedMotion || isPaused || pool.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setBgIndex((i) => (i + 1) % pool.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused, imagePools]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     touchStartXRef.current = e.clientX;
@@ -111,11 +150,13 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ onSelectCategory }) 
     >
       {SLIDES.map((slide, index) => {
         const isActive = index === currentIndex;
+        const pool = imagePools[index];
+        const photo = pool[isActive ? bgIndex % pool.length : 0];
         return (
           <div
             key={slide.label}
             className={`carousel-slide ${isActive ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${assetPath(slide.image)})` }}
+            style={{ backgroundImage: `url(${assetPath(`/images/hero/${photo}`)})` }}
             aria-hidden={!isActive}
           >
             <div className="carousel-copy">

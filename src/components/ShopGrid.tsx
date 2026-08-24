@@ -12,6 +12,9 @@ import {
 import { ProductCard } from './ProductCard';
 import { SearchSuggestions } from './SearchSuggestions';
 import { ProductLightbox } from './ProductLightbox';
+import { recordClick, fetchClickCounts } from '@/lib/clickTracking';
+
+type SortOption = 'default' | 'popular';
 
 interface ShopGridProps {
   products: Product[];
@@ -29,8 +32,21 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
   const [activeCategories, setActiveCategories] = useState<Set<ProductCategory>>(new Set());
   const [activeColours, setActiveColours] = useState<Set<ProductColour>>(new Set());
   const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
+  const [sortBy, setSortBy] = useState<SortOption>('default');
+  const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
 
   const searchWrapRef = useRef<HTMLDivElement>(null);
+
+  // Click counts are an optional enhancement (see src/lib/clickTracking.ts) —
+  // fetch once on mount, fail silently if the tracking endpoint isn't configured.
+  useEffect(() => {
+    fetchClickCounts().then(setClickCounts);
+  }, []);
+
+  const openProduct = (p: Product) => {
+    setLightboxProduct(p);
+    recordClick(p.id);
+  };
 
   // Sync selectedCategory from props (e.g. when deep-linked from Hero Carousel)
   useEffect(() => {
@@ -79,7 +95,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
   const filteredProducts = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
 
-    return products.filter((p) => {
+    const filtered = products.filter((p) => {
       const matchesSearch =
         !q ||
         p.name.toLowerCase().includes(q) ||
@@ -95,7 +111,14 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
       return matchesSearch && matchesCat && matchesColour;
     });
-  }, [products, searchQuery, activeCategories, activeColours]);
+
+    if (sortBy === 'popular') {
+      return [...filtered].sort(
+        (a, b) => (clickCounts[b.id] ?? 0) - (clickCounts[a.id] ?? 0)
+      );
+    }
+    return filtered;
+  }, [products, searchQuery, activeCategories, activeColours, sortBy, clickCounts]);
 
   // Suggestions for autocomplete (up to 5 items)
   const suggestions = useMemo(() => {
@@ -114,7 +137,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
   const handleSelectSuggestion = (p: Product) => {
     setSearchQuery(p.name);
     setIsSuggestionsOpen(false);
-    setLightboxProduct(p);
+    openProduct(p);
   };
 
   return (
@@ -166,6 +189,17 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               onSelectProduct={handleSelectSuggestion}
             />
           </div>
+
+          <label className="sort-select">
+            <span className="visually-hidden">Sort pieces</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as SortOption)}
+            >
+              <option value="default">Newest first</option>
+              <option value="popular">Most viewed</option>
+            </select>
+          </label>
         </div>
       </div>
 
@@ -221,7 +255,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               <ProductCard
                 key={product.id}
                 product={product}
-                onOpenLightbox={(p) => setLightboxProduct(p)}
+                onOpenLightbox={openProduct}
               />
             ))}
           </div>

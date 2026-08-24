@@ -19,6 +19,10 @@ export interface Product {
   photos: string[];
   alt: string;
   description?: string;
+  /** Whether this piece appears in the Shop/Shelf catalog at all. */
+  showOnShelf: boolean;
+  /** Whether this piece is eligible to appear in the Home carousel — requires showOnShelf: true. */
+  showOnHome: boolean;
 }
 
 export const CATEGORY_NAMES: { id: ProductCategory; label: string }[] = [

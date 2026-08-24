@@ -38,6 +38,11 @@ const ProductSchema = z.object({
     .min(1, 'photos must contain at least 1 photo'),
   alt: z.string().min(1, 'alt text is required'),
   description: z.string().optional(),
+  showOnShelf: z.boolean(),
+  showOnHome: z.boolean(),
+}).refine((p) => !p.showOnHome || p.showOnShelf, {
+  message: 'showOnHome requires showOnShelf to also be true — a piece cannot be featured on Home without being browsable on the Shelf',
+  path: ['showOnHome'],
 });
 
 const CatalogSchema = z.array(ProductSchema);

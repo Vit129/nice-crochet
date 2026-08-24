@@ -121,6 +121,10 @@ Real bug, screenshot-caught: the Cherry Bucket Tote card (and others) rendered v
 
 Owner flagged the "Good to know before you order" 3-note block for removal and asked whether the nav label should become "Contact us" instead of "About me." **Kept "About me"** — the page is genuinely a bio/story, relabeling the whole page "Contact us" would misdescribe most of its content. Instead: pulled the TikTok link out of the bio copy flow into its own small `.about-contact` block at the bottom (kicker "Get in touch," a one-line heading, a short line covering what the removed notes used to say about custom orders, then the TikTok chip) — same effect the owner was after (a clearer, findable contact moment) without mislabeling the page. Don't re-add the 3-note "Colours vary / Made to order / DMs welcome" grid — the useful bit of it (custom orders are usually possible) is folded into the new contact paragraph instead.
 
+## Sort control added to Shop toolbar (2026-08-24)
+
+New `.sort-select` sits next to `.search-field` in `.toolbar`, same pill shape and `var(--surface)`/`var(--line)` tokens as the search field so it reads as one control group, not a bolted-on afterthought. Plain `<select>`, not a custom dropdown — this is a two-option control ("Newest first" / "Most viewed"), a native select is the right amount of UI for that, no need for a styled listbox. Same `:focus-visible` outline treatment as every other interactive control on this page.
+
 ## Status
 
 v2 mockup (built from real logo + real photos) published as a Claude Artifact for owner review, same URL as v1. Revisit this file after owner feedback rather than drifting from it silently.

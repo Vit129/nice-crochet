@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import productsData from '@/data/products.json';
+import productsData from '../../products.json';
 import { Product, ProductCategory } from '@/types/product';
 import { Topbar } from '@/components/Topbar';
 import { HeroCarousel } from '@/components/HeroCarousel';
@@ -10,7 +10,8 @@ import { ShopGrid } from '@/components/ShopGrid';
 import { AboutSection } from '@/components/AboutSection';
 import { Footer } from '@/components/Footer';
 
-const products = productsData as Product[];
+const allProducts = productsData as Product[];
+const shelfProducts = allProducts.filter((p) => p.showOnShelf);
 
 export default function Home() {
   const [activePage, setActivePage] = useState<'home' | 'shop' | 'about'>('home');
@@ -34,7 +35,7 @@ export default function Home() {
       {activePage === 'home' && (
         <main id="page-home">
           <h1 className="visually-hidden">Nice Crochet — handmade, hand-looped crochet showcase</h1>
-          <HeroCarousel onSelectCategory={handleSelectCarouselCategory} />
+          <HeroCarousel products={allProducts} onSelectCategory={handleSelectCarouselCategory} />
           <StatsRow />
         </main>
       )}
@@ -42,7 +43,7 @@ export default function Home() {
       {activePage === 'shop' && (
         <main id="page-shop">
           <ShopGrid
-            products={products}
+            products={shelfProducts}
             selectedCategory={selectedCategory}
             onClearCategorySelect={() => setSelectedCategory(null)}
           />

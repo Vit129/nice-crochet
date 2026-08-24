@@ -30,6 +30,11 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /nice-crochet
+          # Optional: only set once the Apps Script click-tracking backend is deployed
+          # (see scripts/apps-script/click-tracking.gs). Repo Settings → Secrets → Actions.
+          # Unset = tracking/sort-by-popularity silently no-ops, rest of the site is unaffected.
+          NEXT_PUBLIC_CLICK_TRACKING_URL: ${{ secrets.CLICK_TRACKING_URL }}
+          NEXT_PUBLIC_CLICK_TRACKING_TOKEN: ${{ secrets.CLICK_TRACKING_TOKEN }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
