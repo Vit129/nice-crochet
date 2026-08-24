@@ -1,6 +1,6 @@
 {
   "name": "nice-crochet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,8 @@
     "build": "tsx scripts/validate-catalog.ts && next build",
     "start": "next start",
     "validate": "tsx scripts/validate-catalog.ts",
-    "build:images": "bash scripts/build-images.sh"
+    "build:images": "bash scripts/build-images.sh",
+    "changelog": "git cliff --tag v0.2.0 -o CHANGELOG.md"
   },
   "dependencies": {
     "next": "^15.2.0",
