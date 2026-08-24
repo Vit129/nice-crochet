@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Product, COLOUR_SWATCHES } from '@/types/product';
+import { Product, getColourHex } from '@/types/product';
 import { ResponsiveImage } from './ResponsiveImage';
 
 interface ProductLightboxProps {
@@ -62,7 +62,7 @@ export const ProductLightbox: React.FC<ProductLightboxProps> = ({ product, onClo
   if (!product) return null;
 
   const primaryColor = product.colours[0] || 'Cherry';
-  const colorHex = COLOUR_SWATCHES[primaryColor] || '#3B8FA1';
+  const colorHex = getColourHex(primaryColor);
   const currentPhoto = photos[photoIndex] || photos[0];
 
   return (
@@ -186,25 +186,28 @@ export const ProductLightbox: React.FC<ProductLightboxProps> = ({ product, onClo
             </div>
 
             <div className="lightbox-contact-hint">
-              <strong>Interested in this piece?</strong>
-              Every item is hand-looped to order. Custom colors and sizing are welcome.
-              <div>
-                <a
-                  href="https://www.tiktok.com/@yukiandnice"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <strong>Made to order, just for you</strong>
+              <p>
+                This piece is hand-looped from a single skein, start to finish
+                — no two turn out quite the same. Custom colors and sizing are
+                always welcome.
+              </p>
+              <a
+                className="btn btn-primary"
+                href="https://www.tiktok.com/@yukiandnice"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
                 >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M16.6 5.82a4.28 4.28 0 0 1-4.28-4.28h-3.4v14.2a2.6 2.6 0 1 1-2.6-2.6c.2 0 .4.02.6.06V9.72a6.2 6.2 0 1 0 5.4 6.15V9.4a7.66 7.66 0 0 0 4.28 1.3V7.3a4.28 4.28 0 0 1 0-1.48Z" />
-                  </svg>
-                  Message @yukiandnice on TikTok
-                </a>
-              </div>
+                  <path d="M16.6 5.82a4.28 4.28 0 0 1-4.28-4.28h-3.4v14.2a2.6 2.6 0 1 1-2.6-2.6c.2 0 .4.02.6.06V9.72a6.2 6.2 0 1 0 5.4 6.15V9.4a7.66 7.66 0 0 0 4.28 1.3V7.3a4.28 4.28 0 0 1 0-1.48Z" />
+                </svg>
+                Message @yukiandnice on TikTok
+              </a>
             </div>
           </div>
         </div>

@@ -7,7 +7,33 @@ set -euo pipefail
 # - card (~600px max width) for shop grid & modal cards
 # - hero (~1600px max width) for hero carousel & full-bleed displays
 
-SOURCE_DIR="${1:-/Users/supavit.cho/.claude/jobs/8adedd7b/tmp/selected}"
+SOURCE_DIR=""
+PRODUCT_ID=""
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --product-id)
+      if [ $# -lt 2 ]; then
+        echo "Error: --product-id requires an argument" >&2
+        exit 1
+      fi
+      PRODUCT_ID="$2"
+      shift 2
+      ;;
+    --product-id=*)
+      PRODUCT_ID="${1#*=}"
+      shift
+      ;;
+    *)
+      if [ -z "$SOURCE_DIR" ]; then
+        SOURCE_DIR="$1"
+      fi
+      shift
+      ;;
+  esac
+done
+
+SOURCE_DIR="${SOURCE_DIR:-/Users/supavit.cho/.claude/jobs/8adedd7b/tmp/selected}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 OUT_DIR="$ROOT_DIR/public/images"
@@ -16,7 +42,17 @@ echo "🌸 Nice Crochet Image Pipeline"
 echo "Source directory: $SOURCE_DIR"
 echo "Output directory: $OUT_DIR"
 
-mkdir -p "$OUT_DIR/thumb" "$OUT_DIR/card" "$OUT_DIR/hero"
+if [ -n "$PRODUCT_ID" ]; then
+  THUMB_DIR="$OUT_DIR/thumb/$PRODUCT_ID"
+  CARD_DIR="$OUT_DIR/card/$PRODUCT_ID"
+  HERO_DIR="$OUT_DIR/hero/$PRODUCT_ID"
+else
+  THUMB_DIR="$OUT_DIR/thumb"
+  CARD_DIR="$OUT_DIR/card"
+  HERO_DIR="$OUT_DIR/hero"
+fi
+
+mkdir -p "$THUMB_DIR" "$CARD_DIR" "$HERO_DIR"
 TEMP_DIR="$(mktemp -d /tmp/nice-crochet-build-images.XXXXXX)"
 trap 'rm -rf "$TEMP_DIR"' EXIT
 
@@ -73,9 +109,9 @@ img.save('$oriented_jpg', quality=95)
   input_for_cwebp="$oriented_jpg"
 
   # Generate 3 WebP sizes
-  cwebp -quiet -q 80 -resize 72 0 "$input_for_cwebp" -o "$OUT_DIR/thumb/$target_webp"
-  cwebp -quiet -q 82 -resize 600 0 "$input_for_cwebp" -o "$OUT_DIR/card/$target_webp"
-  cwebp -quiet -q 85 -resize 1600 0 "$input_for_cwebp" -o "$OUT_DIR/hero/$target_webp"
+  cwebp -quiet -q 80 -resize 72 0 "$input_for_cwebp" -o "$THUMB_DIR/$target_webp"
+  cwebp -quiet -q 82 -resize 600 0 "$input_for_cwebp" -o "$CARD_DIR/$target_webp"
+  cwebp -quiet -q 85 -resize 1600 0 "$input_for_cwebp" -o "$HERO_DIR/$target_webp"
 
   echo "  ✓ Generated thumb (72w), card (600w), hero (1600w) for $target_webp"
 done

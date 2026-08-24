@@ -425,6 +425,40 @@ nav.pages button:focus-visible {
 }
 
 /* ================= STATS ROW ================= */
+/* One compact asymmetric band, not a new standalone section — Home stays
+   the same length it was (carousel + this one row). A macro texture shot
+   sits beside the stats instead of below them, so the craft-close-up idea
+   doesn't cost the extra scroll length the earlier "spotlight" attempt did.
+   See DESIGN.md — a full standalone spotlight + process section was tried
+   and cut for exactly that reason. */
+.craft-spotlight {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
+}
+
+.craft-spotlight-photo {
+  aspect-ratio: 1/1;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.craft-spotlight-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.craft-spotlight-caption {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  max-width: 46ch;
+  margin: 0 0 4px;
+}
+
 .stat-row {
   display: flex;
   gap: clamp(24px, 4vw, 44px);
@@ -572,6 +606,7 @@ nav.pages button:focus-visible {
 }
 
 .search-field {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -584,7 +619,8 @@ nav.pages button:focus-visible {
 }
 
 .search-field:focus-within {
-  outline: 2px solid var(--focus);
+  /* Same lighter var(--teal) treatment as .sort-dropdown-trigger:focus-visible. */
+  outline: 1px solid var(--teal);
   outline-offset: 2px;
 }
 
@@ -706,10 +742,10 @@ nav.pages button:focus-visible {
 .shop-layout {
   display: grid;
   grid-template-columns: 240px 1fr;
-  gap: 36px;
+  gap: 44px;
   /* top/bottom only — a shorthand `padding` here would zero out the
      horizontal padding .wrap already sets on this same element */
-  padding-top: 28px;
+  padding-top: 44px;
   padding-bottom: 90px;
   align-items: start;
 }
@@ -783,7 +819,7 @@ nav.pages button:focus-visible {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 36px;
 }
 
 .product-card {
@@ -791,17 +827,36 @@ nav.pages button:focus-visible {
   flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   padding: 0;
-  transition: transform 200ms cubic-bezier(.22, 1, .36, 1), box-shadow 200ms ease-out;
+  /* Reveal-on-scroll starting state — opacity/translate only, so this
+     never fights the hover lift below (that's driven by :hover, this by
+     .is-revealed). Opacity gets the per-card --reveal-delay; transform's
+     own delay stays 0 so hover never inherits the entrance stagger. */
+  opacity: 0;
+  transform: translateY(18px);
+  transition: transform 220ms cubic-bezier(.22, 1, .36, 1), box-shadow 200ms ease-out, opacity 520ms ease-out var(--reveal-delay, 0ms);
+}
+
+.product-card.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .product-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 14px 30px -18px color-mix(in oklab, var(--ink) 40%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    opacity: 1;
+    transform: none;
+    transition: box-shadow 200ms ease-out;
+  }
 }
 
 .product-card:focus-visible {
@@ -821,6 +876,28 @@ nav.pages button:focus-visible {
   height: 100%;
   object-fit: cover;
   transition: transform 300ms ease-out;
+  /* Real source photos span several shoots (grass, marble, bench) with no
+     shared lighting/white-balance — this is a CSS-only stand-in for actual
+     photo curation, not a substitute for it. Slight desaturation + lifted
+     contrast pulls busy, differently-lit backgrounds toward one common
+     mood instead of each card looking like a different session. */
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.product-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Same vignette technique already used on the carousel/lightbox for
+     control-pill contrast (see DESIGN.md) — here it recedes whatever's at
+     the frame edges so the product itself, not its backdrop, reads first. */
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    color-mix(in oklab, var(--ink) 22%, transparent) 100%
+  );
 }
 
 .product-card:hover .product-photo img {
@@ -829,15 +906,17 @@ nav.pages button:focus-visible {
 
 .product-tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 14px;
+  left: 14px;
   z-index: 2;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 0.64rem;
-  letter-spacing: 0.05em;
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  background: color-mix(in oklab, var(--surface) 88%, transparent);
-  color: var(--ink);
+  /* Lighter glass than before (88%→78% surface) — a quieter label that
+     reads as a caption, not a catalog sticker. */
+  background: color-mix(in oklab, var(--surface) 78%, transparent);
+  color: var(--ink-soft);
   border-radius: 999px;
   padding: 4px 10px;
   backdrop-filter: blur(4px);
@@ -863,16 +942,16 @@ nav.pages button:focus-visible {
 }
 
 .product-body {
-  padding: 16px 16px 18px;
+  padding: 20px 20px 22px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 7px;
 }
 
 .product-name {
   font-family: 'Baloo 2', sans-serif;
   font-weight: 600;
-  font-size: 1.04rem;
+  font-size: 1.1rem;
   color: var(--ink);
 }
 
@@ -1054,29 +1133,34 @@ nav.pages button:focus-visible {
 }
 
 .lightbox-contact-hint {
-  padding: 16px;
+  padding: 18px;
   background: var(--surface-2);
   border-radius: 14px;
   border: 1px solid var(--line);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   color: var(--ink-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .lightbox-contact-hint strong {
   display: block;
   color: var(--ink);
-  margin-bottom: 4px;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-.lightbox-contact-hint a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--teal-deep);
-  font-weight: 700;
-  margin-top: 6px;
+.lightbox-contact-hint p {
+  margin: 0;
+}
+
+.lightbox-contact-hint .btn-primary {
+  align-self: flex-start;
+  font-size: 0.92rem;
+  padding: 12px 22px;
 }
 
 /* ================= ABOUT ================= */
@@ -1240,6 +1324,12 @@ footer {
   }
   .about-grid {
     grid-template-columns: 1fr;
+  }
+  .craft-spotlight {
+    grid-template-columns: 1fr;
+  }
+  .craft-spotlight-photo {
+    max-width: 220px;
   }
   .hoop {
     max-width: 320px;
