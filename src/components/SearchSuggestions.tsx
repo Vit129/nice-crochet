@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Product, COLOUR_SWATCHES } from '@/types/product';
+import { Product, getColourHex } from '@/types/product';
 import { ResponsiveImage } from './ResponsiveImage';
 
 interface SearchSuggestionsProps {
@@ -33,7 +33,7 @@ export const SearchSuggestions: React.FC<SearchSuggestionsProps> = ({
     <div className="search-suggestions" role="listbox" id="search-suggestions">
       {suggestions.map((p) => {
         const primaryColor = p.colours[0] || 'Cherry';
-        const colorHex = COLOUR_SWATCHES[primaryColor] || '#3B8FA1';
+        const colorHex = getColourHex(primaryColor);
         const primaryPhoto = p.photos[0];
 
         return (

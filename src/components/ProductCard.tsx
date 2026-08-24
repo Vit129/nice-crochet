@@ -1,24 +1,48 @@
 'use client';
 
-import React from 'react';
-import { Product, COLOUR_SWATCHES } from '@/types/product';
+import React, { useEffect, useRef, useState } from 'react';
+import { Product, getColourHex } from '@/types/product';
 import { ResponsiveImage } from './ResponsiveImage';
 
 interface ProductCardProps {
   product: Product;
   onOpenLightbox: (product: Product) => void;
+  staggerIndex?: number;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenLightbox }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, onOpenLightbox, staggerIndex = 0 }) => {
   const primaryColor = product.colours[0] || 'Cherry';
-  const colorHex = COLOUR_SWATCHES[primaryColor] || '#3B8FA1';
+  const colorHex = getColourHex(primaryColor);
   const primaryPhoto = product.photos[0];
   const photoCount = product.photos.length;
 
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    // Reveal once, on first entry — a card scrolled past shouldn't
+    // re-animate every time it re-enters the viewport.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsRevealed(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <button
+      ref={cardRef}
       type="button"
-      className="product-card"
+      className={`product-card${isRevealed ? ' is-revealed' : ''}`}
+      style={{ '--reveal-delay': `${staggerIndex * 70}ms` } as React.CSSProperties}
       onClick={() => onOpenLightbox(product)}
       aria-label={`View details and photos for ${product.name}`}
     >

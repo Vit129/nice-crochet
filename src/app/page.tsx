@@ -58,7 +58,7 @@ export default function Home() {
         <main id="page-home">
           <h1 className="visually-hidden">Nice Crochet — handmade, hand-looped crochet showcase</h1>
           <HeroCarousel products={mergedProducts} onSelectCategory={handleSelectCarouselCategory} />
-          <StatsRow />
+          <StatsRow products={shelfProducts} />
         </main>
       )}
 

@@ -6,8 +6,7 @@ import {
   ProductCategory,
   ProductColour,
   CATEGORY_NAMES,
-  COLOURS,
-  COLOUR_SWATCHES,
+  getColourHex,
 } from '@/types/product';
 import { ProductCard } from './ProductCard';
 import { SearchSuggestions } from './SearchSuggestions';
@@ -35,6 +34,14 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
   const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
 
   const searchWrapRef = useRef<HTMLDivElement>(null);
+
+  // Filter chips reflect the real catalog, not a fixed list — a new colour
+  // used on any product shows up here automatically. Sorted for a stable
+  // chip order across renders rather than depending on catalog array order.
+  const availableColours = useMemo(
+    () => Array.from(new Set(products.flatMap((p) => p.colours))).sort(),
+    [products]
+  );
 
   // Click counts are an optional enhancement (see src/lib/clickTracking.ts) —
   // fetch once on mount, fail silently if the tracking endpoint isn't configured.
@@ -106,7 +113,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
       const matchesColour =
         activeColours.size === 0 ||
-        p.colours.some((c) => activeColours.has(c as ProductColour));
+        p.colours.some((c) => activeColours.has(c));
 
       return matchesSearch && matchesCat && matchesColour;
     });
@@ -218,9 +225,9 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
           <div className="filter-group">
             <h3>Colour</h3>
             <div className="filter-chip-list" id="color-filters">
-              {COLOURS.map((colour) => {
+              {availableColours.map((colour) => {
                 const isPressed = activeColours.has(colour);
-                const colorHex = COLOUR_SWATCHES[colour] || '#3B8FA1';
+                const colorHex = getColourHex(colour);
                 return (
                   <button
                     key={colour}
@@ -241,11 +248,12 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
         <div>
           <div className="product-grid" id="product-grid">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map((product, index) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 onOpenLightbox={openProduct}
+                staggerIndex={index % 3}
               />
             ))}
           </div>
