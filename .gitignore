@@ -19,3 +19,8 @@ graphify-out/
 .DS_Store
 *.pem
 .env*.local
+
+# clasp (Apps Script CLI) — holds the real Script ID, same rule as SHEET_ID
+# in click-tracking.gs: never commit a real resource ID to this public repo.
+# Copy scripts/apps-script/.clasp.json.example to .clasp.json and fill it in.
+scripts/apps-script/.clasp.json

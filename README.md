@@ -23,6 +23,8 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
+If a previous dev server didn't shut down cleanly (stale process still on port 3000, or a half-deleted `.next` cache), use `npm run dev:clean` instead — it stops whatever's on the port and clears `.next` before starting.
+
 `npm run build` runs catalog validation (`products.json` against `public/images/`) before the static export — a broken catalog reference fails the build instead of shipping silently.
 
 ## Adding new photos
