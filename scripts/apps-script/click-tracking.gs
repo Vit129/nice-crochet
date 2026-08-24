@@ -32,9 +32,22 @@
 //       secrets + pages.yml env: สำหรับ production build) — URL เดียวกัน
 //       ใช้ทั้ง click tracking และ product flags
 //
-//  วิธีแก้โค้ดแล้ว deploy ใหม่:
-//    Deploy → Manage deployments → Edit → Version: New version → Deploy
-//    (URL เดิมใช้ได้ต่อ ไม่ต้องแก้ env var ใหม่)
+//  วิธีแก้โค้ดแล้ว deploy ใหม่ (ทำครั้งแรกตามขั้นตอนด้านบนก่อนเสมอ):
+//    แบบ manual (ไม่ต้องติดตั้งอะไรเพิ่ม):
+//      Deploy → Manage deployments → Edit → Version: New version → Deploy
+//      (URL เดิมใช้ได้ต่อ ไม่ต้องแก้ env var ใหม่)
+//    แบบ clasp (เร็วกว่า ไม่ต้อง copy-paste เอง — ต้องตั้งครั้งเดียว):
+//      1. `clasp login` (ครั้งเดียวต่อเครื่อง — ถ้าเคยล็อกอินไว้แล้วจากโปรเจกต์
+//         อื่นที่ใช้ Apps Script เหมือนกัน ข้ามได้เลย)
+//      2. เปิด Apps Script editor → Project Settings (ไอคอนเฟือง) → copy
+//         "Script ID" มาวางใน scripts/apps-script/.clasp.json (copy จาก
+//         .clasp.json.example ก่อน — ไฟล์นี้ gitignore ไว้ ห้าม commit ID จริง)
+//      3. `npm run gas:push` — อัพโค้ดขึ้น โดยไม่เปลี่ยน deployment ที่มีอยู่
+//      4. `npm run gas:deploy` — อัพโค้ด + สร้าง deployment version ใหม่
+//         (คนละแบบกับ `gas:push` เฉยๆ — push แค่แก้โค้ดฝั่ง editor, deploy
+//         คือสิ่งที่ทำให้ URL /exec ที่ใช้งานจริงได้โค้ดใหม่)
+//      5. `npm run gas:open` เปิด editor ในเบราว์เซอร์, `npm run gas:logs`
+//         ดู execution log แบบ real-time
 // ════════════════════════════════════════════════
 
 const SHEET_ID = 'PASTE_YOUR_SHEET_ID_HERE';
@@ -189,10 +202,11 @@ function seedProductFlags() {
 }
 
 function toBangkokISO() {
-  const now = new Date();
-  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  const bangkok = new Date(utc + 7 * 3600000);
-  return Utilities.formatDate(bangkok, 'GMT', "yyyy-MM-dd'T'HH:mm:ssXXX");
+  // Let formatDate do the timezone conversion — the previous version shifted
+  // the epoch by hand *and* formatted with timeZone 'GMT', which always
+  // stamps the offset suffix as Z/+00:00 regardless of the shifted value.
+  // The digits came out right (Bangkok wall time) but mislabeled as UTC.
+  return Utilities.formatDate(new Date(), 'GMT+7', "yyyy-MM-dd'T'HH:mm:ssXXX");
 }
 
 function jsonOut(obj) {
