@@ -466,37 +466,109 @@ nav.pages button:focus-visible {
   flex: 1 1 280px;
 }
 
-.sort-select {
+/* Custom listbox (not a native <select>) — a native select's open option
+   list is OS-rendered and cannot be restyled in any browser, which is
+   exactly why this is a hand-built component instead. Same interaction
+   pattern as .search-suggestions below. */
+.sort-dropdown {
+  position: relative;
   flex: none;
 }
 
-.sort-select select {
+.sort-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'Karla', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--ink);
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 10px;
-  padding: 12px 36px 12px 16px;
+  padding: 12px 16px;
   cursor: pointer;
-  /* A plain rounded-rect select, not a pill — the native open dropdown
-     list is a rectangle, so a pill-shaped closed control read as an
-     unfamiliar/non-standard control shape. */
-  appearance: none;
-  -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234C6469' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
+  transition: border-color 180ms ease-out;
 }
 
-.sort-select select:focus-visible {
-  /* var(--teal), not the near-black var(--focus) used elsewhere — this is
-     a lighter accent by design, and --teal is already documented as the
-     token for 3:1 UI-component contrast (not text), the exact tier a
-     focus ring needs. */
+.sort-dropdown-trigger:hover {
+  border-color: var(--ink-soft);
+}
+
+.sort-dropdown-trigger:focus-visible {
+  /* var(--teal), not the near-black var(--focus) used elsewhere — lighter
+     by design, and already the documented token for 3:1 UI-component
+     contrast (not text), the exact tier a focus ring needs. */
   outline: 1px solid var(--teal);
   outline-offset: 2px;
+}
+
+.sort-dropdown-chevron {
+  width: 14px;
+  height: 14px;
+  stroke: var(--ink-soft);
+  flex: none;
+  transition: transform 200ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.sort-dropdown-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.sort-dropdown-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100%;
+  z-index: 30;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 16px 32px -18px color-mix(in oklab, var(--ink) 45%, transparent);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sort-dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  white-space: nowrap;
+  text-align: left;
+  font-family: 'Karla', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink);
+  transition: background 150ms ease-out;
+}
+
+.sort-dropdown-option:hover,
+.sort-dropdown-option:focus-visible {
+  background: var(--surface-2);
+  outline: none;
+}
+
+.sort-dropdown-option.is-selected {
+  font-weight: 700;
+}
+
+.sort-dropdown-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  flex: none;
+  background: transparent;
+}
+
+.sort-dropdown-option.is-selected .sort-dropdown-dot {
+  background: var(--teal);
 }
 
 .search-field {
@@ -505,7 +577,9 @@ nav.pages button:focus-visible {
   gap: 10px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 999px;
+  /* Matches .sort-dropdown-trigger's radius — same toolbar row, same
+     border treatment, reads as one consistent control group. */
+  border-radius: 10px;
   padding: 12px 18px;
 }
 

@@ -189,10 +189,11 @@ function seedProductFlags() {
 }
 
 function toBangkokISO() {
-  const now = new Date();
-  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-  const bangkok = new Date(utc + 7 * 3600000);
-  return Utilities.formatDate(bangkok, 'GMT', "yyyy-MM-dd'T'HH:mm:ssXXX");
+  // Let formatDate do the timezone conversion — the previous version shifted
+  // the epoch by hand *and* formatted with timeZone 'GMT', which always
+  // stamps the offset suffix as Z/+00:00 regardless of the shifted value.
+  // The digits came out right (Bangkok wall time) but mislabeled as UTC.
+  return Utilities.formatDate(new Date(), 'GMT+7', "yyyy-MM-dd'T'HH:mm:ssXXX");
 }
 
 function jsonOut(obj) {
