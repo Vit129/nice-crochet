@@ -909,6 +909,10 @@ nav.pages button:focus-visible {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  /* Fixed default so every product gets the same predictable frame, instead
+     of a shape that depends on how much text happens to be in the info
+     panel — that variability was cropping content unpredictably. */
+  aspect-ratio: 4 / 5;
   min-height: 380px;
 }
 
@@ -926,7 +930,9 @@ nav.pages button:focus-visible {
 .lightbox-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  /* contain, not cover — this view exists to look closely at the whole
+     piece, so nothing should ever crop out of frame */
+  object-fit: contain;
 }
 
 .lightbox-info {
