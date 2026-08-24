@@ -21,4 +21,6 @@ All notable changes to Nice Crochet are documented here. The format is based on
 - Correct EXIF photo orientation and restore shop page padding ([`e86d6d6`](https://github.com/Vit129/nice-crochet/commit/e86d6d69f475adeb8eef77a5d6e43ec1a33e09d8))
 - Sort dropdown looks like a normal control, lighter focus ring ([`0d4dfa0`](https://github.com/Vit129/nice-crochet/commit/0d4dfa0abc82c101067690042ac8cdbe7da46c6e))
 - Lightbox shows full product photo instead of cropping ([`2e45f96`](https://github.com/Vit129/nice-crochet/commit/2e45f964ef5e7d7c4f62757fadc5988176894c85))
+- Replace native select with a custom listbox to match the reference ([`4eafdb4`](https://github.com/Vit129/nice-crochet/commit/4eafdb49fa1bedcfe6eb8c5b797a4bcee37a7aee))
+- LastClickedAt was mislabeled UTC instead of +07:00 ([`51661e0`](https://github.com/Vit129/nice-crochet/commit/51661e0fe654253c111f43828de51f39915e54d5))
 
