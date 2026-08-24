@@ -12,9 +12,8 @@ import {
 import { ProductCard } from './ProductCard';
 import { SearchSuggestions } from './SearchSuggestions';
 import { ProductLightbox } from './ProductLightbox';
+import { SortDropdown, SortOption } from './SortDropdown';
 import { recordClick, fetchClickCounts } from '@/lib/clickTracking';
-
-type SortOption = 'default' | 'popular';
 
 interface ShopGridProps {
   products: Product[];
@@ -190,16 +189,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
             />
           </div>
 
-          <label className="sort-select">
-            <span className="visually-hidden">Sort pieces</span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as SortOption)}
-            >
-              <option value="default">Newest first</option>
-              <option value="popular">Most viewed</option>
-            </select>
-          </label>
+          <SortDropdown value={sortBy} onChange={setSortBy} />
         </div>
       </div>
 
