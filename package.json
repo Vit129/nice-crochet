@@ -1,6 +1,6 @@
 {
   "name": "nice-crochet",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,7 +13,8 @@
     "gas:push": "cd scripts/apps-script && clasp push",
     "gas:deploy": "cd scripts/apps-script && clasp push && clasp deploy",
     "gas:open": "cd scripts/apps-script && clasp open",
-    "gas:logs": "cd scripts/apps-script && clasp logs"
+    "gas:logs": "cd scripts/apps-script && clasp logs",
+    "changelog": "git cliff --tag v0.2.0 -o CHANGELOG.md"
   },
   "dependencies": {
     "next": "^15.2.0",
