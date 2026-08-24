@@ -5,10 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "bash scripts/start-dev.sh",
     "build": "tsx scripts/validate-catalog.ts && next build",
     "start": "next start",
     "validate": "tsx scripts/validate-catalog.ts",
-    "build:images": "bash scripts/build-images.sh"
+    "build:images": "bash scripts/build-images.sh",
+    "gas:push": "cd scripts/apps-script && clasp push",
+    "gas:deploy": "cd scripts/apps-script && clasp push && clasp deploy",
+    "gas:open": "cd scripts/apps-script && clasp open",
+    "gas:logs": "cd scripts/apps-script && clasp logs"
   },
   "dependencies": {
     "next": "^15.2.0",
