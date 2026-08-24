@@ -475,15 +475,27 @@ nav.pages button:focus-visible {
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--ink);
-  background: var(--surface);
+  background-color: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 12px 18px;
+  border-radius: 10px;
+  padding: 12px 36px 12px 16px;
   cursor: pointer;
+  /* A plain rounded-rect select, not a pill — the native open dropdown
+     list is a rectangle, so a pill-shaped closed control read as an
+     unfamiliar/non-standard control shape. */
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234C6469' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
 }
 
 .sort-select select:focus-visible {
-  outline: 2px solid var(--focus);
+  /* var(--teal), not the near-black var(--focus) used elsewhere — this is
+     a lighter accent by design, and --teal is already documented as the
+     token for 3:1 UI-component contrast (not text), the exact tier a
+     focus ring needs. */
+  outline: 1px solid var(--teal);
   outline-offset: 2px;
 }
 
