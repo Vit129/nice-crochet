@@ -1218,8 +1218,13 @@ nav.pages button:focus-visible {
   color: var(--ink);
 }
 
-.tiktok-chip {
-  margin-top: 26px;
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-chip {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1236,12 +1241,12 @@ nav.pages button:focus-visible {
   transition: border-color 180ms ease-out, transform 150ms cubic-bezier(.22, 1, .36, 1);
 }
 
-.tiktok-chip:hover {
+.social-chip:hover {
   border-color: var(--ink);
   transform: translateY(-1px);
 }
 
-.tiktok-chip svg {
+.social-chip svg {
   width: 16px;
   height: 16px;
 }
@@ -1265,7 +1270,7 @@ nav.pages button:focus-visible {
   color: var(--ink-soft);
 }
 
-.about-contact .tiktok-chip {
+.about-contact .social-links {
   margin-top: 22px;
 }
 
