@@ -7,6 +7,11 @@ import { assetPath } from '@/lib/basePath';
 interface Slide {
   /** Filename fallback used only if no showOnHome-flagged product exists for this category yet. */
   fallbackImage: string;
+  /** Manual override: when set, this single photo is the slide's whole pool,
+   *  regardless of which products in `category` are showOnHome-flagged. Used
+   *  when the best photo for a slide's story lives on a product outside its
+   *  own category (e.g. the flower charm shown as an accent on a tote). */
+  pinnedPhoto?: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -45,6 +50,7 @@ const SLIDES: Slide[] = [
   },
   {
     fallbackImage: 'flower-charm.webp',
+    pinnedPhoto: 'tan-shoulder-tote-brown-white-flower-standing-marble-1.webp',
     eyebrow: 'The signature',
     title: 'Finished with a flower.',
     description: 'The crochet flower that shows up across the whole shelf — also sold on its own as a charm.',
@@ -64,6 +70,7 @@ interface HeroCarouselProps {
 function useSlideImagePools(products: Product[]) {
   return useMemo(() => {
     return SLIDES.map((slide) => {
+      if (slide.pinnedPhoto) return [slide.pinnedPhoto];
       const pool = products
         .filter((p) => p.category === slide.category && p.showOnHome && p.photos[0])
         .map((p) => p.homePhoto || p.photos[0]);

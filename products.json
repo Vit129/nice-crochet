@@ -52,7 +52,7 @@
     "alt": "Crochet flower charm keychain in brown, tan and cream",
     "description": "Signature handmade crochet flower charm in a soft brown-tan-cream colourway.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
   },
   {
     "id": "brown-white-flower-charm",
@@ -68,7 +68,7 @@
     "alt": "Crochet flower charm keychain in brown and white",
     "description": "Signature handmade crochet flower charm in a crisp brown and white colourway.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
   },
   {
     "id": "camel-bucket-tote",
@@ -124,7 +124,7 @@
     "alt": "Cream and tan two-tone crochet tote bag with a flower charm accent",
     "description": "Two-tone tote in cream and tan, finished with a signature crochet flower charm.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
   },
   {
     "id": "mustard-bucket-tote",
