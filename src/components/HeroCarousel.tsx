@@ -152,13 +152,21 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCa
         const isActive = index === currentIndex;
         const pool = imagePools[index];
         const photo = pool[isActive ? bgIndex % pool.length : 0];
+        const photoUrl = assetPath(`/images/hero/${photo}`);
         return (
           <div
             key={slide.label}
             className={`carousel-slide ${isActive ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${assetPath(`/images/hero/${photo}`)})` }}
+            style={{ '--slide-bg': `url(${photoUrl})` } as React.CSSProperties}
             aria-hidden={!isActive}
           >
+            <img
+              className="carousel-slide-fg"
+              src={photoUrl}
+              alt=""
+              aria-hidden="true"
+              loading={isActive ? 'eager' : 'lazy'}
+            />
             <div className="carousel-copy">
               <span className="eyebrow">{slide.eyebrow}</span>
               <h2 className="display">{slide.title}</h2>
