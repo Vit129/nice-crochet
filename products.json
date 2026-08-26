@@ -38,35 +38,21 @@
     "showOnHome": true
   },
   {
-    "id": "brown-tan-cream-flower-charm",
-    "name": "Brown, Tan & Cream Flower Charm",
+    "id": "flower-charm",
+    "name": "Flower Charm",
     "category": "Flower charms",
     "colours": [
       "Brown",
       "Tan",
-      "Cream"
-    ],
-    "photos": [
-      "brown-tan-cream-flower-charm-flat-white-1.webp"
-    ],
-    "alt": "Crochet flower charm keychain in brown, tan and cream",
-    "description": "Signature handmade crochet flower charm in a soft brown-tan-cream colourway.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "brown-white-flower-charm",
-    "name": "Brown & White Flower Charm",
-    "category": "Flower charms",
-    "colours": [
-      "Brown",
+      "Cream",
       "White"
     ],
     "photos": [
+      "brown-tan-cream-flower-charm-flat-white-1.webp",
       "brown-white-flower-charm-flat-white-1.webp"
     ],
-    "alt": "Crochet flower charm keychain in brown and white",
-    "description": "Signature handmade crochet flower charm in a crisp brown and white colourway.",
+    "alt": "Crochet flower charm keychain, shown in two colourways",
+    "description": "Signature handmade crochet flower charm, available in a soft brown-tan-cream colourway or a crisp brown-and-white one.",
     "showOnShelf": true,
     "showOnHome": false
   },
@@ -260,23 +246,6 @@
     "homePhoto": "tan-shoulder-tote-brown-white-flower-standing-marble-1.webp"
   },
   {
-    "id": "yellow-tan-lattice-tote",
-    "name": "Yellow & Tan Lattice Tote",
-    "category": "Market totes & bags",
-    "colours": [
-      "Yellow",
-      "Tan"
-    ],
-    "photos": [
-      "yellow-tan-lattice-tote-flat-white-1.webp",
-      "yellow-tan-lattice-tote-flat-white-4.webp"
-    ],
-    "alt": "Yellow and tan two-tone crochet lattice-weave tote bag",
-    "description": "Two-tone lattice-weave tote in yellow and tan, no flower charm.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
     "id": "yellow-tan-lattice-tote-flower-charm",
     "name": "Yellow & Tan Lattice Tote with Flower Charm",
     "category": "Market totes & bags",
@@ -287,7 +256,9 @@
     "photos": [
       "yellow-tan-lattice-tote-flower-charm-flat-white-1.webp",
       "yellow-tan-lattice-tote-flower-charm-detail-white-1.webp",
-      "yellow-tan-lattice-tote-flower-charm-flat-white-3.webp"
+      "yellow-tan-lattice-tote-flower-charm-flat-white-3.webp",
+      "yellow-tan-lattice-tote-flat-white-1.webp",
+      "yellow-tan-lattice-tote-flat-white-4.webp"
     ],
     "alt": "Yellow and tan two-tone crochet lattice-weave tote with flower charm",
     "description": "Two-tone lattice-weave tote in yellow and tan, finished with a signature crochet flower charm.",
