@@ -1,145 +1,420 @@
 [
   {
-    "id": "cherry-bucket-tote",
-    "name": "Cherry Bucket Tote",
-    "category": "Market totes & bags",
-    "colours": ["Cherry"],
-    "photos": ["red-tote-1.webp", "in-hand.webp"],
-    "alt": "Handmade crochet cherry red bucket tote bag held in hand",
-    "description": "A classic bucket tote hand-looped in rich cherry red yarn, with sturdy integrated handles.",
+    "id": "brown-cream-card-holder",
+    "name": "Brown & Cream Card Holder",
+    "category": "Card holders",
+    "colours": [
+      "Brown",
+      "Cream"
+    ],
+    "photos": [
+      "brown-cream-card-holder-ball-charm-flat-marble-1.webp",
+      "brown-cream-card-holder-ball-charm-handheld-1.webp",
+      "brown-cream-card-holder-ball-charm-handheld-2.webp"
+    ],
+    "alt": "Handmade crochet card holder in brown and cream with a ball charm",
+    "description": "Compact card wallet in brown and cream, finished with a hand-looped ball charm.",
     "showOnShelf": true,
     "showOnHome": true
   },
   {
-    "id": "mustard-market-tote",
-    "name": "Mustard Market Tote",
-    "category": "Market totes & bags",
-    "colours": ["Mustard"],
-    "photos": ["mustard-tote-1.webp"],
-    "alt": "Mustard yellow crochet open-weave market tote bag",
-    "description": "Open lattice-weave tote in warm mustard gold, ideal as a breathable everyday carry-all.",
+    "id": "brown-cream-multi-card-holder-pair",
+    "name": "Brown & Cream Multi Card Holder",
+    "category": "Card holders",
+    "colours": [
+      "Brown",
+      "Cream"
+    ],
+    "photos": [
+      "brown-cream-multi-card-holder-pair-flat-marble-1.webp"
+    ],
+    "alt": "Brown and cream crochet multi-slot card holder shown as a pair",
+    "description": "Multi-slot card holder shown as a matching pair, crafted in brown and cream.",
     "showOnShelf": true,
     "showOnHome": false
+  },
+  {
+    "id": "cream-multi-card-holder-flower-charm",
+    "name": "Cream Multi Card Holder with Flower Charm",
+    "category": "Card holders",
+    "colours": [
+      "Cream"
+    ],
+    "photos": [
+      "cream-multi-card-holder-flower-charm-flat-marble-1.webp",
+      "cream-multi-card-holder-flower-charm-handheld-1.webp",
+      "cream-multi-card-holder-flower-charm-handheld-2.webp"
+    ],
+    "alt": "Cream crochet multi-slot card holder with flower charm keychain",
+    "description": "Multi-slot card wallet in cream, finished with a signature flower charm.",
+    "showOnShelf": true,
+    "showOnHome": true
+  },
+  {
+    "id": "brown-tan-cream-flower-charm",
+    "name": "Brown, Tan & Cream Flower Charm",
+    "category": "Flower charms",
+    "colours": [
+      "Brown",
+      "Tan",
+      "Cream"
+    ],
+    "photos": [
+      "brown-tan-cream-flower-charm-flat-white-1.webp"
+    ],
+    "alt": "Crochet flower charm keychain in brown, tan and cream",
+    "description": "Signature handmade crochet flower charm in a soft brown-tan-cream colourway.",
+    "showOnShelf": true,
+    "showOnHome": true
+  },
+  {
+    "id": "brown-white-flower-charm",
+    "name": "Brown & White Flower Charm",
+    "category": "Flower charms",
+    "colours": [
+      "Brown",
+      "White"
+    ],
+    "photos": [
+      "brown-white-flower-charm-flat-white-1.webp"
+    ],
+    "alt": "Crochet flower charm keychain in brown and white",
+    "description": "Signature handmade crochet flower charm in a crisp brown and white colourway.",
+    "showOnShelf": true,
+    "showOnHome": true
   },
   {
     "id": "camel-bucket-tote",
     "name": "Camel Bucket Tote",
     "category": "Market totes & bags",
-    "colours": ["Camel"],
-    "photos": ["camel-tote-1.webp"],
-    "alt": "Earthy camel brown crochet bucket tote with dual straps",
-    "description": "Dense stitch tote in warm camel brown with reinforced shoulder straps.",
+    "colours": [
+      "Camel"
+    ],
+    "photos": [
+      "camel-bucket-tote-outdoor-bench-2.webp",
+      "camel-bucket-tote-handheld-park-1.webp",
+      "camel-bucket-tote-long-strap-handheld-1.webp"
+    ],
+    "alt": "Handmade camel brown crochet bucket tote with handles",
+    "description": "Dense stitch bucket tote in warm camel brown with sturdy woven handles.",
     "showOnShelf": true,
     "showOnHome": false
   },
   {
-    "id": "cherry-rectangle-tote",
-    "name": "Cherry Rectangle Tote",
+    "id": "cherry-red-bucket-tote",
+    "name": "Cherry Red Bucket Tote",
     "category": "Market totes & bags",
-    "colours": ["Cherry"],
-    "photos": ["red-tote-2.webp"],
-    "alt": "Structured cherry red rectangular crochet tote bag",
-    "description": "Flat-bottom rectangular market tote in deep cherry red.",
+    "colours": [
+      "Cherry Red"
+    ],
+    "photos": [
+      "cherry-red-bucket-tote-outdoor-bench-1.webp",
+      "cherry-red-bucket-tote-outdoor-bench-2.webp",
+      "cherry-red-bucket-tote-handheld-park-1.webp"
+    ],
+    "alt": "Handmade cherry red crochet bucket tote bag",
+    "description": "Classic bucket tote hand-looped in rich cherry red yarn.",
     "showOnShelf": true,
     "showOnHome": false
   },
   {
-    "id": "lattice-two-tone-tote",
-    "name": "Lattice Two-Tone Tote",
+    "id": "cream-tan-two-tone-tote-flower-charm",
+    "name": "Cream & Tan Two-Tone Tote with Flower Charm",
     "category": "Market totes & bags",
-    "colours": ["Mustard"],
-    "photos": ["lattice-yellow-tote.webp", "texture-macro.webp"],
-    "alt": "Mustard and cream two-tone lattice weave crochet tote",
-    "description": "Signature two-tone lattice pattern with contrast yellow top trim and textured stitch work.",
+    "colours": [
+      "Cream",
+      "Tan"
+    ],
+    "photos": [
+      "cream-tan-two-tone-tote-flower-charm-standing-white-1.webp",
+      "cream-tan-two-tone-tote-flower-charm-flat-white-1.webp",
+      "cream-tan-two-tone-tote-flower-charm-detail-white-1.webp"
+    ],
+    "alt": "Cream and tan two-tone crochet tote bag with a flower charm accent",
+    "description": "Two-tone tote in cream and tan, finished with a signature crochet flower charm.",
     "showOnShelf": true,
     "showOnHome": true
   },
   {
-    "id": "tan-mini-market-bag",
-    "name": "Tan Mini Market Bag",
+    "id": "mustard-bucket-tote",
+    "name": "Mustard Bucket Tote",
     "category": "Market totes & bags",
-    "colours": ["Tan"],
-    "photos": ["tan-mini-tote.webp"],
-    "alt": "Compact tan beige crochet mini tote bag",
-    "description": "A petite market bag crafted in neutral tan yarn for quick errands and light carry.",
+    "colours": [
+      "Mustard"
+    ],
+    "photos": [
+      "mustard-bucket-tote-outdoor-bench-1.webp",
+      "mustard-bucket-tote-outdoor-bench-3.webp"
+    ],
+    "alt": "Handmade mustard yellow crochet bucket tote bag",
+    "description": "Dense stitch bucket tote in warm mustard gold.",
     "showOnShelf": true,
     "showOnHome": false
   },
   {
-    "id": "tan-tote-with-flower",
-    "name": "Tan Tote with Flower",
+    "id": "mustard-lattice-market-tote-flower-charm",
+    "name": "Mustard Lattice Market Tote with Flower Charm",
     "category": "Market totes & bags",
-    "colours": ["Tan"],
-    "photos": ["tan-flower-tote.webp"],
-    "alt": "Tan crochet tote bag accented with signature crochet flower charm",
-    "description": "Everyday neutral tan tote adorned with a signature handcrafted flower accent.",
+    "colours": [
+      "Mustard"
+    ],
+    "photos": [
+      "mustard-lattice-market-tote-flower-charm-flat-white-1.webp",
+      "mustard-lattice-market-tote-flower-charm-chair-1.webp",
+      "mustard-lattice-market-tote-flower-charm-chair-3.webp"
+    ],
+    "alt": "Mustard open lattice-weave crochet market tote with flower charm",
+    "description": "Open lattice-weave tote in mustard gold, finished with a signature flower charm.",
     "showOnShelf": true,
     "showOnHome": true
   },
   {
-    "id": "charcoal-mesh-tote",
-    "name": "Charcoal Mesh Tote",
-    "category": "Market totes & bags",
-    "colours": ["Charcoal"],
-    "photos": ["charcoal-tote.webp"],
-    "alt": "Charcoal grey open mesh crochet market tote",
-    "description": "Airy, expandable mesh tote in deep charcoal grey yarn.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "sage-plum-tote-pair",
-    "name": "Sage & Plum Tote Pair",
-    "category": "Market totes & bags",
-    "colours": ["Camel"],
-    "photos": ["sage-plum-pair.webp"],
-    "alt": "Pair of hand-crocheted market totes in earthy sage and plum tones",
-    "description": "Complementary pair of market totes showcasing organic earthy colorways.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "cherry-flap-pouch",
-    "name": "Cherry Flap Pouch",
+    "id": "orange-carrot-pouch",
+    "name": "Orange Carrot Pouch",
     "category": "Pouches & purses",
-    "colours": ["Cherry"],
-    "photos": ["red-pouch.webp"],
-    "alt": "Cherry red crochet flap pouch with button loop closure",
-    "description": "Compact pouch with folded flap and delicate loop-and-button closure in cherry yarn.",
+    "colours": [
+      "Orange"
+    ],
+    "photos": [
+      "orange-carrot-pouch-flat-marble-1.webp",
+      "orange-carrot-pouch-front-handheld-outdoor-1.webp",
+      "orange-carrot-pouch-back-handheld-outdoor-1.webp",
+      "orange-carrot-pouch-flat-marble-2.webp",
+      "orange-carrot-pouch-front-handheld-outdoor-5.webp"
+    ],
+    "alt": "Playful orange crochet carrot-shaped pouch",
+    "description": "A playful novelty pouch hand-looped in the shape of a carrot.",
     "showOnShelf": true,
     "showOnHome": true
   },
   {
-    "id": "mustard-leaf-flap-pouch",
-    "name": "Mustard Leaf-Flap Pouch",
+    "id": "plum-bucket-tote",
+    "name": "Plum Bucket Tote",
+    "category": "Market totes & bags",
+    "colours": [
+      "Plum"
+    ],
+    "photos": [
+      "plum-bucket-tote-outdoor-bench-2.webp",
+      "plum-bucket-tote-outdoor-bench-3.webp",
+      "plum-bucket-tote-handheld-park-1.webp"
+    ],
+    "alt": "Handmade plum purple crochet bucket tote bag",
+    "description": "Dense stitch bucket tote in deep plum purple.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "red-strawberry-pouch",
+    "name": "Red Strawberry Pouch",
     "category": "Pouches & purses",
-    "colours": ["Mustard"],
-    "photos": ["mustard-pouch.webp"],
-    "alt": "Mustard yellow crochet pouch with botanical leaf flap",
-    "description": "Small accessory pouch with hand-looped organic flap detail.",
+    "colours": [
+      "Red"
+    ],
+    "photos": [
+      "red-strawberry-pouch-flat-marble-1.webp",
+      "red-strawberry-pouch-front-handheld-outdoor-1.webp",
+      "red-strawberry-pouch-back-handheld-outdoor-1.webp",
+      "red-strawberry-pouch-snap-detail-handheld-outdoor-1.webp",
+      "red-strawberry-pouch-flat-marble-2.webp"
+    ],
+    "alt": "Playful red crochet strawberry-shaped pouch",
+    "description": "A playful novelty pouch hand-looped in the shape of a strawberry, closed with a snap.",
     "showOnShelf": true,
     "showOnHome": true
   },
   {
-    "id": "two-tone-card-holder",
-    "name": "Two-Tone Card Holder",
-    "category": "Card holders",
-    "colours": ["Camel"],
-    "photos": ["card-holders.webp"],
-    "alt": "Two-tone crochet card holder wallet with tab closure",
-    "description": "Pocket-sized flap-tab card wallet crafted in dual-tone camel and cream stitches.",
+    "id": "sage-green-bucket-tote",
+    "name": "Sage Green Bucket Tote",
+    "category": "Market totes & bags",
+    "colours": [
+      "Sage Green"
+    ],
+    "photos": [
+      "sage-green-bucket-tote-outdoor-bench-1.webp"
+    ],
+    "alt": "Handmade sage green crochet bucket tote bag",
+    "description": "Dense stitch bucket tote in soft sage green.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
   },
   {
-    "id": "cherry-sky-flower-charm",
-    "name": "Cherry & Sky Flower Charm",
-    "category": "Flower charms",
-    "colours": ["Cherry"],
-    "photos": ["flower-charm.webp", "flower-detail.webp"],
-    "alt": "Crochet flower charm keychain with sky blue loop",
-    "description": "Signature handmade crochet blossom charm with delicate petals and hanging loop.",
+    "id": "tan-lattice-market-tote",
+    "name": "Tan Lattice Market Tote",
+    "category": "Market totes & bags",
+    "colours": [
+      "Tan"
+    ],
+    "photos": [
+      "tan-lattice-market-tote-flat-marble-1.webp",
+      "tan-lattice-market-tote-standing-marble-2.webp",
+      "tan-lattice-market-tote-handheld-outdoor-1.webp",
+      "tan-lattice-market-tote-interior-open-marble-1.webp"
+    ],
+    "alt": "Tan open lattice-weave crochet market tote bag",
+    "description": "Open lattice-weave tote in neutral tan, ideal as a breathable everyday carry-all.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
+  },
+  {
+    "id": "tan-shoulder-tote-brown-tan-flower",
+    "name": "Tan Shoulder Tote — Brown-Tan Flower Charm",
+    "category": "Market totes & bags",
+    "colours": [
+      "Tan",
+      "Brown"
+    ],
+    "photos": [
+      "tan-shoulder-tote-brown-tan-flower-standing-marble-1.webp",
+      "tan-shoulder-tote-brown-tan-flower-hanging-wood-1.webp",
+      "tan-shoulder-tote-brown-tan-flower-hanging-outdoor-1.webp"
+    ],
+    "alt": "Tan crochet shoulder tote with a brown-tan flower charm accent",
+    "description": "Neutral tan shoulder tote finished with a brown-tan crochet flower charm.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "tan-shoulder-tote-brown-white-flower",
+    "name": "Tan Shoulder Tote — Brown-White Flower Charm",
+    "category": "Market totes & bags",
+    "colours": [
+      "Tan",
+      "Brown",
+      "White"
+    ],
+    "photos": [
+      "tan-shoulder-tote-brown-white-flower-hanging-outdoor-1.webp",
+      "tan-shoulder-tote-brown-white-flower-handles-folded-marble-1.webp",
+      "tan-tote-with-flower-handheld-1.webp",
+      "tan-tote-with-flower-interior-snap-1.webp",
+      "tan-shoulder-tote-brown-white-flower-standing-marble-1.webp"
+    ],
+    "alt": "Tan open-mesh crochet shoulder tote with a brown-white flower charm accent",
+    "description": "Open-mesh weave shoulder tote in tan, finished with a brown-white crochet flower charm and snap closure.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "yellow-tan-lattice-tote",
+    "name": "Yellow & Tan Lattice Tote",
+    "category": "Market totes & bags",
+    "colours": [
+      "Yellow",
+      "Tan"
+    ],
+    "photos": [
+      "yellow-tan-lattice-tote-flat-white-1.webp",
+      "yellow-tan-lattice-tote-flat-white-4.webp"
+    ],
+    "alt": "Yellow and tan two-tone crochet lattice-weave tote bag",
+    "description": "Two-tone lattice-weave tote in yellow and tan, no flower charm.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "yellow-tan-lattice-tote-flower-charm",
+    "name": "Yellow & Tan Lattice Tote with Flower Charm",
+    "category": "Market totes & bags",
+    "colours": [
+      "Yellow",
+      "Tan"
+    ],
+    "photos": [
+      "yellow-tan-lattice-tote-flower-charm-flat-white-1.webp",
+      "yellow-tan-lattice-tote-flower-charm-detail-white-1.webp",
+      "yellow-tan-lattice-tote-flower-charm-flat-white-3.webp"
+    ],
+    "alt": "Yellow and tan two-tone crochet lattice-weave tote with flower charm",
+    "description": "Two-tone lattice-weave tote in yellow and tan, finished with a signature crochet flower charm.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "yellow-pineapple-pouch",
+    "name": "Yellow Pineapple Pouch",
+    "category": "Pouches & purses",
+    "colours": [
+      "Yellow"
+    ],
+    "photos": [
+      "yellow-pineapple-pouch-flat-marble-1.webp"
+    ],
+    "alt": "Playful yellow crochet pineapple-shaped pouch",
+    "description": "A playful novelty pouch hand-looped in the shape of a pineapple.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "trio-bucket-tote-set",
+    "name": "Trio Bucket Tote Set — Camel, Plum & Cherry Red",
+    "category": "Market totes & bags",
+    "colours": [
+      "Camel",
+      "Plum",
+      "Cherry Red"
+    ],
+    "photos": [
+      "trio-bucket-totes-camel-plum-red-lineup-1.webp",
+      "trio-bucket-totes-camel-plum-red-flat-bench-1.webp",
+      "trio-bucket-totes-red-plum-camel-bench-1.webp"
+    ],
+    "alt": "Three handmade crochet bucket totes in camel, plum and cherry red shown together",
+    "description": "A trio of bucket totes in camel, plum, and cherry red — each sold separately, shown together.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "trio-pouch-set",
+    "name": "Trio Pouch Set — Strawberry, Carrot & Pineapple",
+    "category": "Pouches & purses",
+    "colours": [
+      "Red",
+      "Orange",
+      "Yellow"
+    ],
+    "photos": [
+      "trio-pouches-red-orange-yellow-flat-marble-1.webp",
+      "trio-pouches-red-orange-yellow-vertical-marble-1.webp",
+      "trio-pouches-red-orange-yellow-flat-marble-3.webp"
+    ],
+    "alt": "Three novelty crochet pouches — strawberry, carrot and pineapple — shown together",
+    "description": "The strawberry, carrot and pineapple pouches together — each sold separately.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "strawberry-carrot-pouch-duo",
+    "name": "Strawberry & Carrot Pouch Duo",
+    "category": "Pouches & purses",
+    "colours": [
+      "Red",
+      "Orange"
+    ],
+    "photos": [
+      "strawberry-carrot-pouch-pair-flat-marble-1.webp",
+      "strawberry-carrot-pouch-pair-flat-marble-2.webp"
+    ],
+    "alt": "Strawberry and carrot novelty crochet pouches shown as a pair",
+    "description": "The strawberry and carrot pouches paired together — each sold separately.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "plum-cherry-red-bucket-tote-duo",
+    "name": "Plum & Cherry Red Bucket Tote Duo",
+    "category": "Market totes & bags",
+    "colours": [
+      "Plum",
+      "Cherry Red"
+    ],
+    "photos": [
+      "plum-cherry-red-bucket-tote-pair-bench-1.webp",
+      "plum-cherry-red-bucket-tote-pair-flat-bench-1.webp"
+    ],
+    "alt": "Plum and cherry red crochet bucket totes shown together",
+    "description": "The plum and cherry red bucket totes paired together — each sold separately.",
+    "showOnShelf": true,
+    "showOnHome": false
   }
 ]

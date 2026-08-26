@@ -1,6 +1,6 @@
 # Nice Crochet
 
-Portfolio/showcase site for the handmade crochet brand [@yukiandnice](https://www.tiktok.com/@yukiandnice) on TikTok and [@nic.ecrochet](https://www.instagram.com/nic.ecrochet/) on Instagram — browse the catalog by category and colour, no cart or checkout. Anyone who wants a piece still reaches out over TikTok or Instagram DM.
+Portfolio/showcase site for the handmade crochet brand [@yukiandnice](https://www.tiktok.com/@yukiandnice) on TikTok — browse the catalog by category and colour, no cart or checkout. Anyone who wants a piece still reaches out over TikTok DM.
 
 **Live: https://vit129.github.io/nice-crochet/** — every push to `main` redeploys automatically via GitHub Actions.
 
@@ -8,7 +8,7 @@ Portfolio/showcase site for the handmade crochet brand [@yukiandnice](https://ww
 
 - **Home** — hero carousel featuring hand-picked pieces per category
 - **Shelf** — full catalog: search, filter by category/colour, sort by newest or most-viewed
-- **About me** — the maker's story and TikTok/Instagram contact links
+- **About me** — the maker's story and a TikTok contact link
 
 Clicking any piece opens a lightbox with all of its photos.
 
