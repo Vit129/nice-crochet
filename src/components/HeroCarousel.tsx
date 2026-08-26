@@ -7,6 +7,11 @@ import { assetPath } from '@/lib/basePath';
 interface Slide {
   /** Filename fallback used only if no showOnHome-flagged product exists for this category yet. */
   fallbackImage: string;
+  /** Manual override: when set, this single photo is the slide's whole pool,
+   *  regardless of which products in `category` are showOnHome-flagged. Used
+   *  when the best photo for a slide's story lives on a product outside its
+   *  own category (e.g. the flower charm shown as an accent on a tote). */
+  pinnedPhoto?: string;
   eyebrow: string;
   title: string;
   description: string;
@@ -18,37 +23,38 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     fallbackImage: 'lattice-yellow-tote.webp',
-    eyebrow: 'Handmade with love',
-    title: 'Every piece hand‑looped, never mass‑made.',
-    description: "Market totes turn a single skein into a proper carry-all — the same pieces you've seen on @yukiandnice.",
-    btnText: 'Browse totes',
+    eyebrow: 'ทำด้วยรัก',
+    title: 'ทุกชิ้นถักด้วยมือ ไม่ใช่งานโรงงาน',
+    description: 'กระเป๋าตลาดที่เปลี่ยนไหมหนึ่งไจให้กลายเป็นกระเป๋าใบโปรด ชิ้นเดียวกับที่เห็นใน @yukiandnice',
+    btnText: 'ดูกระเป๋าทั้งหมด',
     category: 'Market totes & bags',
     label: 'Slide 1: Totes',
   },
   {
     fallbackImage: 'mustard-pouch.webp',
-    eyebrow: 'The essentials',
-    title: 'Small enough for everyday.',
-    description: 'Pouches and purses, closed with a hand-looped button loop — no zippers, no hardware.',
-    btnText: 'Browse pouches',
+    eyebrow: 'ของจำเป็น',
+    title: 'เล็กพอดีสำหรับทุกวัน',
+    description: 'กระเป๋าใบเล็กปิดด้วยห่วงกระดุมถักมือ ไม่มีซิป ไม่มีอุปกรณ์เสริม',
+    btnText: 'ดูกระเป๋าใบเล็ก',
     category: 'Pouches & purses',
     label: 'Slide 2: Pouches',
   },
   {
     fallbackImage: 'card-holders.webp',
-    eyebrow: 'Carry less',
-    title: 'One card holder, two colourways.',
-    description: 'A flap-tab closure, finished with a pom-pom or a flower charm keychain.',
-    btnText: 'Browse card holders',
+    eyebrow: 'พกน้อยลง',
+    title: 'ที่ใส่บัตรหนึ่งแบบ สองสีให้เลือก',
+    description: 'ปิดด้วยแผ่นเทป ตกแต่งด้วยปอมปอมหรือพวงกุญแจดอกไม้',
+    btnText: 'ดูที่ใส่บัตร',
     category: 'Card holders',
     label: 'Slide 3: Card holders',
   },
   {
     fallbackImage: 'flower-charm.webp',
-    eyebrow: 'The signature',
-    title: 'Finished with a flower.',
-    description: 'The crochet flower that shows up across the whole shelf — also sold on its own as a charm.',
-    btnText: 'Browse charms',
+    pinnedPhoto: 'tan-shoulder-tote-brown-white-flower-standing-marble-1.webp',
+    eyebrow: 'ซิกเนเจอร์ของร้าน',
+    title: 'ปิดท้ายด้วยดอกไม้',
+    description: 'ดอกไม้โครเชต์ที่โผล่มาทั่วทั้งชั้น แยกขายเป็นพวงกุญแจได้ด้วย',
+    btnText: 'ดูพวงกุญแจดอกไม้',
     category: 'Flower charms',
     label: 'Slide 4: Flower charms',
   },
@@ -64,9 +70,11 @@ interface HeroCarouselProps {
 function useSlideImagePools(products: Product[]) {
   return useMemo(() => {
     return SLIDES.map((slide) => {
+      if (slide.pinnedPhoto) return [slide.pinnedPhoto];
       const pool = products
         .filter((p) => p.category === slide.category && p.showOnHome && p.photos[0])
-        .map((p) => p.photos[0]);
+        .sort((a, b) => (a.homePriority ?? Infinity) - (b.homePriority ?? Infinity))
+        .map((p) => p.homePhoto || p.photos[0]);
       return pool.length > 0 ? pool : [slide.fallbackImage];
     });
   }, [products]);
@@ -152,13 +160,21 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCa
         const isActive = index === currentIndex;
         const pool = imagePools[index];
         const photo = pool[isActive ? bgIndex % pool.length : 0];
+        const photoUrl = assetPath(`/images/hero/${photo}`);
         return (
           <div
             key={slide.label}
             className={`carousel-slide ${isActive ? 'active' : ''}`}
-            style={{ backgroundImage: `url(${assetPath(`/images/hero/${photo}`)})` }}
+            style={{ '--slide-bg': `url(${photoUrl})` } as React.CSSProperties}
             aria-hidden={!isActive}
           >
+            <img
+              className="carousel-slide-fg"
+              src={photoUrl}
+              alt=""
+              aria-hidden="true"
+              loading={isActive ? 'eager' : 'lazy'}
+            />
             <div className="carousel-copy">
               <span className="eyebrow">{slide.eyebrow}</span>
               <h2 className="display">{slide.title}</h2>

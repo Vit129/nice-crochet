@@ -148,7 +148,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
   return (
     <>
-      <h1 className="visually-hidden">The shelf — search and filter every piece</h1>
+      <h1 className="visually-hidden">ชั้นวางสินค้า — ค้นหาและกรองดูทุกชิ้น</h1>
 
       <div className="wrap shop-head">
         <div className="toolbar">
@@ -167,7 +167,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               <input
                 type="search"
                 id="shop-search"
-                placeholder="Search “tote”, “pouch”, “mustard”…"
+                placeholder="ค้นหา “tote”, “pouch”, “mustard”…"
                 aria-label="Search pieces"
                 role="combobox"
                 aria-expanded={isSuggestionsOpen}
@@ -260,8 +260,8 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
           {filteredProducts.length === 0 && (
             <div className="no-results" id="no-results" style={{ display: 'block' }}>
-              <strong>No pieces match that yet.</strong>
-              Try a different colour, or clear a filter.
+              <strong>ยังไม่มีชิ้นไหนตรงกับที่ค้นหาเลย</strong>
+              ลองเปลี่ยนสี หรือล้างตัวกรองดูนะคะ
             </div>
           )}
         </div>

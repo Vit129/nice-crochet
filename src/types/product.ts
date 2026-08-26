@@ -22,6 +22,10 @@ export interface Product {
   showOnShelf: boolean;
   /** Whether this piece is eligible to appear in the Home carousel — requires showOnShelf: true. */
   showOnHome: boolean;
+  /** Optional Home-carousel background, when it should differ from the Shelf card (photos[0]) — e.g. a lifestyle/group shot that's a better hero than the product's own flat-lay. Falls back to photos[0] when unset. */
+  homePhoto?: string;
+  /** Order within a category's Home rotation pool (lower shows first). Deliberately separate from products.json's array position — that position is Shelf's own default sort order and must stay free to change without silently reshuffling Home. Unset sorts after any set value, in array order. */
+  homePriority?: number;
 }
 
 export const CATEGORY_NAMES: { id: ProductCategory; label: string }[] = [
