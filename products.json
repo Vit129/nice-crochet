@@ -178,7 +178,7 @@
     "alt": "Playful orange crochet carrot-shaped pouch",
     "description": "A playful novelty pouch hand-looped in the shape of a carrot.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
   },
   {
     "id": "plum-bucket-tote",
