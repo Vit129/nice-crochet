@@ -73,6 +73,7 @@ function useSlideImagePools(products: Product[]) {
       if (slide.pinnedPhoto) return [slide.pinnedPhoto];
       const pool = products
         .filter((p) => p.category === slide.category && p.showOnHome && p.photos[0])
+        .sort((a, b) => (a.homePriority ?? Infinity) - (b.homePriority ?? Infinity))
         .map((p) => p.homePhoto || p.photos[0]);
       return pool.length > 0 ? pool : [slide.fallbackImage];
     });

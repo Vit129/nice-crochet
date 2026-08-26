@@ -41,6 +41,7 @@ const ProductSchema = z.object({
   showOnShelf: z.boolean(),
   showOnHome: z.boolean(),
   homePhoto: z.string().min(1).regex(/\.webp$/, 'homePhoto filename must end in .webp').optional(),
+  homePriority: z.number().optional(),
 }).refine((p) => !p.showOnHome || p.showOnShelf, {
   message: 'showOnHome requires showOnShelf to also be true — a piece cannot be featured on Home without being browsable on the Shelf',
   path: ['showOnHome'],
