@@ -109,24 +109,6 @@
     "showOnHome": false
   },
   {
-    "id": "cream-tan-two-tone-tote-flower-charm",
-    "name": "Cream & Tan Two-Tone Tote with Flower Charm",
-    "category": "Market totes & bags",
-    "colours": [
-      "Cream",
-      "Tan"
-    ],
-    "photos": [
-      "cream-tan-two-tone-tote-flower-charm-standing-white-1.webp",
-      "cream-tan-two-tone-tote-flower-charm-flat-white-1.webp",
-      "cream-tan-two-tone-tote-flower-charm-detail-white-1.webp"
-    ],
-    "alt": "Cream and tan two-tone crochet tote bag with a flower charm accent",
-    "description": "Two-tone tote in cream and tan, finished with a signature crochet flower charm.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
     "id": "mustard-bucket-tote",
     "name": "Mustard Bucket Tote",
     "category": "Market totes & bags",
@@ -141,23 +123,6 @@
     "description": "Dense stitch bucket tote in warm mustard gold.",
     "showOnShelf": true,
     "showOnHome": false
-  },
-  {
-    "id": "mustard-lattice-market-tote-flower-charm",
-    "name": "Mustard Lattice Market Tote with Flower Charm",
-    "category": "Market totes & bags",
-    "colours": [
-      "Mustard"
-    ],
-    "photos": [
-      "mustard-lattice-market-tote-flower-charm-flat-white-1.webp",
-      "mustard-lattice-market-tote-flower-charm-chair-1.webp",
-      "mustard-lattice-market-tote-flower-charm-chair-3.webp"
-    ],
-    "alt": "Mustard open lattice-weave crochet market tote with flower charm",
-    "description": "Open lattice-weave tote in mustard gold, finished with a signature flower charm.",
-    "showOnShelf": true,
-    "showOnHome": true
   },
   {
     "id": "orange-carrot-pouch",
