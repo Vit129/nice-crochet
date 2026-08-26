@@ -93,12 +93,14 @@
     "photos": [
       "camel-bucket-tote-outdoor-bench-2.webp",
       "camel-bucket-tote-handheld-park-1.webp",
-      "camel-bucket-tote-long-strap-handheld-1.webp"
+      "camel-bucket-tote-long-strap-handheld-1.webp",
+      "trio-bucket-totes-camel-plum-red-lineup-1.webp"
     ],
     "alt": "Handmade camel brown crochet bucket tote with handles",
     "description": "Dense stitch bucket tote in warm camel brown with sturdy woven handles.",
     "showOnShelf": true,
-    "showOnHome": false
+    "showOnHome": true,
+    "homePhoto": "trio-bucket-totes-camel-plum-red-lineup-1.webp"
   },
   {
     "id": "cherry-red-bucket-tote",
@@ -110,7 +112,9 @@
     "photos": [
       "cherry-red-bucket-tote-outdoor-bench-1.webp",
       "cherry-red-bucket-tote-outdoor-bench-2.webp",
-      "cherry-red-bucket-tote-handheld-park-1.webp"
+      "cherry-red-bucket-tote-handheld-park-1.webp",
+      "trio-bucket-totes-camel-plum-red-lineup-1.webp",
+      "plum-cherry-red-bucket-tote-pair-bench-1.webp"
     ],
     "alt": "Handmade cherry red crochet bucket tote bag",
     "description": "Classic bucket tote hand-looped in rich cherry red yarn.",
@@ -180,7 +184,9 @@
       "orange-carrot-pouch-front-handheld-outdoor-1.webp",
       "orange-carrot-pouch-back-handheld-outdoor-1.webp",
       "orange-carrot-pouch-flat-marble-2.webp",
-      "orange-carrot-pouch-front-handheld-outdoor-5.webp"
+      "orange-carrot-pouch-front-handheld-outdoor-5.webp",
+      "trio-pouches-red-orange-yellow-flat-marble-1.webp",
+      "strawberry-carrot-pouch-pair-flat-marble-1.webp"
     ],
     "alt": "Playful orange crochet carrot-shaped pouch",
     "description": "A playful novelty pouch hand-looped in the shape of a carrot.",
@@ -197,7 +203,9 @@
     "photos": [
       "plum-bucket-tote-outdoor-bench-2.webp",
       "plum-bucket-tote-outdoor-bench-3.webp",
-      "plum-bucket-tote-handheld-park-1.webp"
+      "plum-bucket-tote-handheld-park-1.webp",
+      "trio-bucket-totes-camel-plum-red-lineup-1.webp",
+      "plum-cherry-red-bucket-tote-pair-bench-1.webp"
     ],
     "alt": "Handmade plum purple crochet bucket tote bag",
     "description": "Dense stitch bucket tote in deep plum purple.",
@@ -216,7 +224,9 @@
       "red-strawberry-pouch-front-handheld-outdoor-1.webp",
       "red-strawberry-pouch-back-handheld-outdoor-1.webp",
       "red-strawberry-pouch-snap-detail-handheld-outdoor-1.webp",
-      "red-strawberry-pouch-flat-marble-2.webp"
+      "red-strawberry-pouch-flat-marble-2.webp",
+      "trio-pouches-red-orange-yellow-flat-marble-1.webp",
+      "strawberry-carrot-pouch-pair-flat-marble-1.webp"
     ],
     "alt": "Playful red crochet strawberry-shaped pouch",
     "description": "A playful novelty pouch hand-looped in the shape of a strawberry, closed with a snap.",
@@ -338,82 +348,11 @@
       "Yellow"
     ],
     "photos": [
-      "yellow-pineapple-pouch-flat-marble-1.webp"
+      "yellow-pineapple-pouch-flat-marble-1.webp",
+      "trio-pouches-red-orange-yellow-flat-marble-1.webp"
     ],
     "alt": "Playful yellow crochet pineapple-shaped pouch",
     "description": "A playful novelty pouch hand-looped in the shape of a pineapple.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "trio-bucket-tote-set",
-    "name": "Trio Bucket Tote Set — Camel, Plum & Cherry Red",
-    "category": "Market totes & bags",
-    "colours": [
-      "Camel",
-      "Plum",
-      "Cherry Red"
-    ],
-    "photos": [
-      "trio-bucket-totes-camel-plum-red-lineup-1.webp",
-      "trio-bucket-totes-camel-plum-red-flat-bench-1.webp",
-      "trio-bucket-totes-red-plum-camel-bench-1.webp"
-    ],
-    "alt": "Three handmade crochet bucket totes in camel, plum and cherry red shown together",
-    "description": "A trio of bucket totes in camel, plum, and cherry red — each sold separately, shown together.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "trio-pouch-set",
-    "name": "Trio Pouch Set — Strawberry, Carrot & Pineapple",
-    "category": "Pouches & purses",
-    "colours": [
-      "Red",
-      "Orange",
-      "Yellow"
-    ],
-    "photos": [
-      "trio-pouches-red-orange-yellow-flat-marble-1.webp",
-      "trio-pouches-red-orange-yellow-vertical-marble-1.webp",
-      "trio-pouches-red-orange-yellow-flat-marble-3.webp"
-    ],
-    "alt": "Three novelty crochet pouches — strawberry, carrot and pineapple — shown together",
-    "description": "The strawberry, carrot and pineapple pouches together — each sold separately.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "strawberry-carrot-pouch-duo",
-    "name": "Strawberry & Carrot Pouch Duo",
-    "category": "Pouches & purses",
-    "colours": [
-      "Red",
-      "Orange"
-    ],
-    "photos": [
-      "strawberry-carrot-pouch-pair-flat-marble-1.webp",
-      "strawberry-carrot-pouch-pair-flat-marble-2.webp"
-    ],
-    "alt": "Strawberry and carrot novelty crochet pouches shown as a pair",
-    "description": "The strawberry and carrot pouches paired together — each sold separately.",
-    "showOnShelf": true,
-    "showOnHome": false
-  },
-  {
-    "id": "plum-cherry-red-bucket-tote-duo",
-    "name": "Plum & Cherry Red Bucket Tote Duo",
-    "category": "Market totes & bags",
-    "colours": [
-      "Plum",
-      "Cherry Red"
-    ],
-    "photos": [
-      "plum-cherry-red-bucket-tote-pair-bench-1.webp",
-      "plum-cherry-red-bucket-tote-pair-flat-bench-1.webp"
-    ],
-    "alt": "Plum and cherry red crochet bucket totes shown together",
-    "description": "The plum and cherry red bucket totes paired together — each sold separately.",
     "showOnShelf": true,
     "showOnHome": false
   }

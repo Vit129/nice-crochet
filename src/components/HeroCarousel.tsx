@@ -66,7 +66,7 @@ function useSlideImagePools(products: Product[]) {
     return SLIDES.map((slide) => {
       const pool = products
         .filter((p) => p.category === slide.category && p.showOnHome && p.photos[0])
-        .map((p) => p.photos[0]);
+        .map((p) => p.homePhoto || p.photos[0]);
       return pool.length > 0 ? pool : [slide.fallbackImage];
     });
   }, [products]);

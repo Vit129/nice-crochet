@@ -22,6 +22,8 @@ export interface Product {
   showOnShelf: boolean;
   /** Whether this piece is eligible to appear in the Home carousel — requires showOnShelf: true. */
   showOnHome: boolean;
+  /** Optional Home-carousel background, when it should differ from the Shelf card (photos[0]) — e.g. a lifestyle/group shot that's a better hero than the product's own flat-lay. Falls back to photos[0] when unset. */
+  homePhoto?: string;
 }
 
 export const CATEGORY_NAMES: { id: ProductCategory; label: string }[] = [
