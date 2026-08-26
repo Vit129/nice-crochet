@@ -10,28 +10,14 @@
     "photos": [
       "brown-cream-card-holder-ball-charm-flat-marble-1.webp",
       "brown-cream-card-holder-ball-charm-handheld-1.webp",
-      "brown-cream-card-holder-ball-charm-handheld-2.webp"
+      "brown-cream-card-holder-ball-charm-handheld-2.webp",
+      "brown-cream-multi-card-holder-pair-flat-marble-1.webp"
     ],
     "alt": "Handmade crochet card holder in brown and cream with a ball charm",
     "description": "Compact card wallet in brown and cream, finished with a hand-looped ball charm.",
     "showOnShelf": true,
-    "showOnHome": true
-  },
-  {
-    "id": "brown-cream-multi-card-holder-pair",
-    "name": "Brown & Cream Multi Card Holder",
-    "category": "Card holders",
-    "colours": [
-      "Brown",
-      "Cream"
-    ],
-    "photos": [
-      "brown-cream-multi-card-holder-pair-flat-marble-1.webp"
-    ],
-    "alt": "Brown and cream crochet multi-slot card holder shown as a pair",
-    "description": "Multi-slot card holder shown as a matching pair, crafted in brown and cream.",
-    "showOnShelf": true,
-    "showOnHome": false
+    "showOnHome": true,
+    "homePhoto": "brown-cream-multi-card-holder-pair-flat-marble-1.webp"
   },
   {
     "id": "cream-multi-card-holder-flower-charm",
@@ -43,7 +29,8 @@
     "photos": [
       "cream-multi-card-holder-flower-charm-flat-marble-1.webp",
       "cream-multi-card-holder-flower-charm-handheld-1.webp",
-      "cream-multi-card-holder-flower-charm-handheld-2.webp"
+      "cream-multi-card-holder-flower-charm-handheld-2.webp",
+      "brown-cream-multi-card-holder-pair-flat-marble-1.webp"
     ],
     "alt": "Cream crochet multi-slot card holder with flower charm keychain",
     "description": "Multi-slot card wallet in cream, finished with a signature flower charm.",
@@ -231,7 +218,8 @@
     "alt": "Playful red crochet strawberry-shaped pouch",
     "description": "A playful novelty pouch hand-looped in the shape of a strawberry, closed with a snap.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": true,
+    "homePhoto": "trio-pouches-red-orange-yellow-flat-marble-1.webp"
   },
   {
     "id": "sage-green-bucket-tote",
@@ -303,7 +291,8 @@
     "alt": "Tan open-mesh crochet shoulder tote with a brown-white flower charm accent",
     "description": "Open-mesh weave shoulder tote in tan, finished with a brown-white crochet flower charm and snap closure.",
     "showOnShelf": true,
-    "showOnHome": false
+    "showOnHome": true,
+    "homePhoto": "tan-shoulder-tote-brown-white-flower-standing-marble-1.webp"
   },
   {
     "id": "yellow-tan-lattice-tote",
