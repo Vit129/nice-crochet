@@ -13,6 +13,7 @@ out/
 # Claude / Gemini agent artifacts & worktrees
 agent-memory/
 .claude/worktrees/
+.kouen-worktrees/
 graphify-out/
 
 # OS / Editor files
