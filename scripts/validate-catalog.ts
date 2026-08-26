@@ -115,6 +115,51 @@ function validateCatalog() {
   console.log(
     `✅ Catalog validation passed: ${products.length} products verified with all photos present on disk.\n`
   );
+
+  validateHardcodedImageRefs();
+}
+
+/**
+ * Catches the class of bug where a component hardcodes a .webp filename
+ * outside products.json (e.g. AboutSection's hero photo, HeroCarousel's
+ * per-category fallback) and that file later gets deleted as "unused" by
+ * someone only checking products.json references. Static grep, not an AST
+ * parse — good enough for a handful of literal filenames.
+ */
+function validateHardcodedImageRefs() {
+  const srcDir = path.join(ROOT_DIR, 'src');
+  const cardDir = path.join(ROOT_DIR, 'public', 'images', 'card');
+  const missing: string[] = [];
+
+  function walk(dir: string) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (entry.name.endsWith('.tsx') || entry.name.endsWith('.ts')) {
+        const content = fs.readFileSync(full, 'utf-8');
+        const matches = content.matchAll(/['"]([\w-]+\.webp)['"]/g);
+        for (const match of matches) {
+          const filename = match[1];
+          if (!fs.existsSync(path.join(cardDir, filename))) {
+            missing.push(`❌ ${path.relative(ROOT_DIR, full)} references "${filename}", not found at public/images/card/${filename}`);
+          }
+        }
+      }
+    }
+  }
+
+  walk(srcDir);
+
+  if (missing.length > 0) {
+    console.error(`\n❌ Hardcoded image reference check failed:`);
+    for (const err of missing) {
+      console.error(`  ${err}`);
+    }
+    process.exit(1);
+  }
+
+  console.log('✅ Hardcoded image references (About/Stats/HeroCarousel fallbacks) all present on disk.\n');
 }
 
 validateCatalog();
