@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Product } from '@/types/product';
-import { ResponsiveImage } from './ResponsiveImage';
 
 interface StatsRowProps {
   products: Product[];
@@ -23,13 +22,6 @@ export const StatsRow: React.FC<StatsRowProps> = ({ products }) => {
   return (
     <div className="wrap">
       <div className="craft-spotlight">
-        <div className="craft-spotlight-photo">
-          <ResponsiveImage
-            filename="texture-macro.webp"
-            alt="Extreme close-up of a hand-looped stitch, showing the texture of the yarn"
-            sizeVariant="hero"
-          />
-        </div>
         <div className="craft-spotlight-body">
           <p className="craft-spotlight-caption">
             Every loop tied by hand, one stitch at a time — no two pieces come out quite the same.

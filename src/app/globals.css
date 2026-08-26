@@ -457,22 +457,7 @@ nav.pages button:focus-visible {
    See DESIGN.md — a full standalone spotlight + process section was tried
    and cut for exactly that reason. */
 .craft-spotlight {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: clamp(24px, 4vw, 40px);
-  align-items: center;
-}
-
-.craft-spotlight-photo {
-  aspect-ratio: 1/1;
-  border-radius: 18px;
-  overflow: hidden;
-}
-
-.craft-spotlight-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
 }
 
 .craft-spotlight-caption {
@@ -1361,12 +1346,6 @@ footer {
   }
   .about-grid {
     grid-template-columns: 1fr;
-  }
-  .craft-spotlight {
-    grid-template-columns: 1fr;
-  }
-  .craft-spotlight-photo {
-    max-width: 220px;
   }
   .hoop {
     max-width: 320px;
