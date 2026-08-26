@@ -133,8 +133,7 @@
     "alt": "Tan open-mesh crochet shoulder tote with a brown-white flower charm accent",
     "description": "Open-mesh weave shoulder tote in tan, finished with a brown-white crochet flower charm and snap closure.",
     "showOnShelf": true,
-    "showOnHome": true,
-    "homePhoto": "tan-shoulder-tote-brown-white-flower-standing-marble-1.webp"
+    "showOnHome": false
   },
   {
     "id": "tan-lattice-market-tote",
