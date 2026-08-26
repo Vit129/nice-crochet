@@ -24,20 +24,20 @@ export const StatsRow: React.FC<StatsRowProps> = ({ products }) => {
       <div className="craft-spotlight">
         <div className="craft-spotlight-body">
           <p className="craft-spotlight-caption">
-            Every loop tied by hand, one stitch at a time — no two pieces come out quite the same.
+            ทุกห่วงถักด้วยมือ ทีละฝีเข็ม ไม่มีชิ้นไหนเหมือนกันเป๊ะ
           </p>
           <div className="stat-row">
             <div className="stat">
               <b>{categoryCount}</b>
-              <span>product families</span>
+              <span>หมวดสินค้า</span>
             </div>
             <div className="stat">
               <b>{colourCount}</b>
-              <span>yarn colourways</span>
+              <span>เฉดสีไหม</span>
             </div>
             <div className="stat">
               <b>100%</b>
-              <span>hand-looped, no machines</span>
+              <span>ถักมือ ไม่ใช้เครื่องจักร</span>
             </div>
           </div>
         </div>
