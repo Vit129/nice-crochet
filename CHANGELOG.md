@@ -3,6 +3,15 @@
 All notable changes to Nice Crochet are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.4.0] - 2026-08-31
+
+### Added
+- Add bilingual Thai+English semantic search and remove sort dropdown ([`a0a8705`](https://github.com/Vit129/nice-crochet/commit/a0a8705701c0c8b837ec3783bb88593c16145068))
+
+### Fixed
+- Show only the trio photo on Home's Market totes slide, no rotation ([`a3b0a69`](https://github.com/Vit129/nice-crochet/commit/a3b0a6967d09dbfd1920274baca7c815cd5b7a02))
+- Update maker name to Nice and minimalist social chips ([`516ee34`](https://github.com/Vit129/nice-crochet/commit/516ee3441bd88631591583a5b97af0103808526c))
+
 ## [0.3.0] - 2026-08-26
 
 ### Added
