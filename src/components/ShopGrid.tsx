@@ -11,8 +11,8 @@ import {
 import { ProductCard } from './ProductCard';
 import { SearchSuggestions } from './SearchSuggestions';
 import { ProductLightbox } from './ProductLightbox';
-import { SortDropdown, SortOption } from './SortDropdown';
 import { recordClick, fetchClickCounts } from '@/lib/clickTracking';
+import { searchProducts } from '@/lib/search';
 
 interface ShopGridProps {
   products: Product[];
@@ -30,7 +30,6 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
   const [activeCategories, setActiveCategories] = useState<Set<ProductCategory>>(new Set());
   const [activeColours, setActiveColours] = useState<Set<ProductColour>>(new Set());
   const [lightboxProduct, setLightboxProduct] = useState<Product | null>(null);
-  const [sortBy, setSortBy] = useState<SortOption>('default');
   const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
 
   const searchWrapRef = useRef<HTMLDivElement>(null);
@@ -97,47 +96,19 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
     });
   };
 
-  // Filter products
+  // Filter products using bilingual search engine with ranking
   const filteredProducts = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-
-    const filtered = products.filter((p) => {
-      const matchesSearch =
-        !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.colours.some((c) => c.toLowerCase().includes(q));
-
-      const matchesCat =
-        activeCategories.size === 0 || activeCategories.has(p.category);
-
-      const matchesColour =
-        activeColours.size === 0 ||
-        p.colours.some((c) => activeColours.has(c));
-
-      return matchesSearch && matchesCat && matchesColour;
+    return searchProducts(products, searchQuery, {
+      activeCategories,
+      activeColours,
+      clickCounts,
     });
+  }, [products, searchQuery, activeCategories, activeColours, clickCounts]);
 
-    if (sortBy === 'popular') {
-      return [...filtered].sort(
-        (a, b) => (clickCounts[b.id] ?? 0) - (clickCounts[a.id] ?? 0)
-      );
-    }
-    return filtered;
-  }, [products, searchQuery, activeCategories, activeColours, sortBy, clickCounts]);
-
-  // Suggestions for autocomplete (up to 5 items)
+  // Suggestions for autocomplete (top 5 items ranked by search relevance)
   const suggestions = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-    if (!q) return [];
-    return products
-      .filter(
-        (p) =>
-          p.name.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q) ||
-          p.colours.some((c) => c.toLowerCase().includes(q))
-      )
-      .slice(0, 5);
+    if (!searchQuery.trim()) return [];
+    return searchProducts(products, searchQuery).slice(0, 5);
   }, [products, searchQuery]);
 
   const handleSelectSuggestion = (p: Product) => {
@@ -167,7 +138,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               <input
                 type="search"
                 id="shop-search"
-                placeholder="ค้นหา “tote”, “pouch”, “mustard”…"
+                placeholder="ค้นหา “สตรอเบอร์รี่”, “กระเป๋า”, “tote”, “mustard”…"
                 aria-label="Search pieces"
                 role="combobox"
                 aria-expanded={isSuggestionsOpen}
@@ -195,8 +166,6 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               onSelectProduct={handleSelectSuggestion}
             />
           </div>
-
-          <SortDropdown value={sortBy} onChange={setSortBy} />
         </div>
       </div>
 
