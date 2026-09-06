@@ -3,6 +3,11 @@
 All notable changes to Nice Crochet are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.5.0] - 2026-09-06
+
+### Added
+- Add envelope card holders, flower charms, and 5-collection home carousel ([`ea13be5`](https://github.com/Vit129/nice-crochet/commit/ea13be5afe86811cffd6d77b642e8b5a98c22397))
+
 ## [0.4.0] - 2026-08-31
 
 ### Added
