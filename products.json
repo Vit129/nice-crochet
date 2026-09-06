@@ -35,7 +35,68 @@
     "alt": "Cream crochet multi-slot card holder with flower charm keychain",
     "description": "Multi-slot card wallet in cream, finished with a signature flower charm.",
     "showOnShelf": true,
-    "showOnHome": true
+    "showOnHome": false
+  },
+  {
+    "id": "sky-blue-pink-envelope-card-holder",
+    "name": "Sky Blue & Pink Envelope Card Holder",
+    "category": "Card holders",
+    "colours": [
+      "Sky Blue",
+      "Pink"
+    ],
+    "photos": [
+      "sky-blue-pink-envelope-card-holder-flat-marble-1.webp",
+      "envelope-card-holder-interior-snap-marble-1.webp",
+      "trio-envelope-card-holders-lineup-marble-1.webp",
+      "trio-envelope-card-holders-table-lifestyle-1.webp",
+      "trio-envelope-card-holders-handheld-wall-1.webp"
+    ],
+    "alt": "Sky blue and pink handmade crochet envelope card holder with flower charm keychain",
+    "description": "Two-tone envelope-style crochet card holder in sky blue and pink, fastened with a secure metal snap and finished with mini flower charms.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "cream-berry-envelope-card-holder",
+    "name": "Cream & Berry Envelope Card Holder",
+    "category": "Card holders",
+    "colours": [
+      "Cream",
+      "Plum"
+    ],
+    "photos": [
+      "cream-berry-envelope-card-holder-flat-marble-1.webp",
+      "envelope-card-holder-interior-snap-marble-1.webp",
+      "trio-envelope-card-holders-lineup-marble-1.webp",
+      "trio-envelope-card-holders-table-lifestyle-2.webp",
+      "trio-envelope-card-holders-handheld-wall-2.webp"
+    ],
+    "alt": "Cream and berry plum handmade crochet envelope card holder with flower charm keychain",
+    "description": "Two-tone envelope-style crochet card holder in cream and deep berry plum, fastened with a secure metal snap and finished with mini flower charms.",
+    "showOnShelf": true,
+    "showOnHome": false
+  },
+  {
+    "id": "cream-dusty-pink-envelope-card-holder",
+    "name": "Cream & Dusty Pink Envelope Card Holder",
+    "category": "Card holders",
+    "colours": [
+      "Cream",
+      "Pink"
+    ],
+    "photos": [
+      "cream-dusty-pink-envelope-card-holder-flat-marble-1.webp",
+      "envelope-card-holder-interior-snap-marble-1.webp",
+      "trio-envelope-card-holders-lineup-marble-1.webp",
+      "trio-envelope-card-holders-table-lifestyle-3.webp",
+      "trio-envelope-card-holders-table-lifestyle-4.webp",
+      "trio-envelope-card-holders-handheld-wall-1.webp"
+    ],
+    "alt": "Cream and dusty pink handmade crochet envelope card holder with flower charm keychain",
+    "description": "Two-tone envelope-style crochet card holder in cream and dusty pink, fastened with a secure metal snap and finished with mini flower charms.",
+    "showOnShelf": true,
+    "showOnHome": false
   },
   {
     "id": "orange-carrot-pouch",
@@ -267,17 +328,25 @@
     "name": "Flower Charm",
     "category": "Flower charms",
     "colours": [
+      "Pink",
+      "Plum",
       "Brown",
       "Tan",
       "Cream",
-      "White"
+      "White",
+      "Sage Green"
     ],
     "photos": [
+      "pink-flower-charm-flat-marble-1.webp",
+      "pink-flower-charm-handheld-wall-1.webp",
+      "pink-flower-charm-handheld-wall-2.webp",
+      "plum-flower-charm-flat-marble-1.webp",
+      "plum-flower-charm-handheld-wall-1.webp",
       "brown-tan-cream-flower-charm-flat-white-1.webp",
       "brown-white-flower-charm-flat-white-1.webp"
     ],
-    "alt": "Crochet flower charm keychain, shown in two colourways",
-    "description": "Signature handmade crochet flower charm, available in a soft brown-tan-cream colourway or a crisp brown-and-white one. Shown as a style reference — colour and other details can be customized to order.",
+    "alt": "Handmade crochet flower charm keychain, shown in pink, plum, and neutral colourways",
+    "description": "Signature handmade crochet flower charm, available in pink-and-cream, plum-and-cream, brown-tan-cream, and brown-white colourways. Shown as a style reference — colour and other details can be customized to order.",
     "showOnShelf": true,
     "showOnHome": false
   }

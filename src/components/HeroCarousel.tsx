@@ -23,6 +23,7 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     fallbackImage: 'lattice-yellow-tote.webp',
+    pinnedPhoto: 'trio-bucket-totes-camel-plum-red-lineup-1.webp',
     eyebrow: 'ทำด้วยรัก',
     title: 'ทุกชิ้นถักด้วยมือ ไม่ใช่งานโรงงาน',
     description: 'กระเป๋าตลาดที่เปลี่ยนไหมหนึ่งไจให้กลายเป็นกระเป๋าใบโปรด ชิ้นเดียวกับที่เห็นใน @yukiandnice',
@@ -32,6 +33,7 @@ const SLIDES: Slide[] = [
   },
   {
     fallbackImage: 'mustard-pouch.webp',
+    pinnedPhoto: 'trio-pouches-red-orange-yellow-flat-marble-1.webp',
     eyebrow: 'ของจำเป็น',
     title: 'เล็กพอดีสำหรับทุกวัน',
     description: 'กระเป๋าใบเล็กปิดด้วยห่วงกระดุมถักมือ ไม่มีซิป ไม่มีอุปกรณ์เสริม',
@@ -41,12 +43,23 @@ const SLIDES: Slide[] = [
   },
   {
     fallbackImage: 'card-holders.webp',
+    pinnedPhoto: 'brown-cream-multi-card-holder-pair-flat-marble-1.webp',
     eyebrow: 'พกน้อยลง',
     title: 'ที่ใส่บัตรหนึ่งแบบ สองสีให้เลือก',
     description: 'ปิดด้วยแผ่นเทป ตกแต่งด้วยปอมปอมหรือพวงกุญแจดอกไม้',
     btnText: 'ดูที่ใส่บัตร',
     category: 'Card holders',
     label: 'Slide 3: Card holders',
+  },
+  {
+    fallbackImage: 'trio-envelope-card-holders-table-lifestyle-4.webp',
+    pinnedPhoto: 'trio-envelope-card-holders-table-lifestyle-4.webp',
+    eyebrow: 'พกพาสะดวก',
+    title: 'ซองใส่บัตรทรงจดหมาย',
+    description: 'ซองสองสีพร้อมกระดุมแป๊กโลหะ ตกแต่งด้วยพวงกุญแจดอกไม้จิ๋ว',
+    btnText: 'ดูซองใส่บัตร',
+    category: 'Card holders',
+    label: 'Slide 4: Envelope card holders',
   },
   {
     fallbackImage: 'flower-charm.webp',
@@ -56,7 +69,7 @@ const SLIDES: Slide[] = [
     description: 'ดอกไม้โครเชต์ที่โผล่มาทั่วทั้งชั้น แยกขายเป็นพวงกุญแจได้ด้วย',
     btnText: 'ดูพวงกุญแจดอกไม้',
     category: 'Flower charms',
-    label: 'Slide 4: Flower charms',
+    label: 'Slide 5: Flower charms',
   },
 ];
 
@@ -83,7 +96,6 @@ function useSlideImagePools(products: Product[]) {
 export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCategory }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [bgIndex, setBgIndex] = useState(0);
   const touchStartXRef = useRef<number | null>(null);
   const imagePools = useSlideImagePools(products);
 
@@ -105,28 +117,6 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCa
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [isPaused, nextSlide]);
-
-  // Reset to the pool's first photo whenever we land on a new slide.
-  useEffect(() => {
-    setBgIndex(0);
-  }, [currentIndex]);
-
-  // While a slide with more than one flagged photo is active, quietly cycle
-  // its background through the pool — gives repeat visitors visible variety
-  // without adding a second, competing carousel UI.
-  useEffect(() => {
-    const prefersReducedMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const pool = imagePools[currentIndex];
-    if (prefersReducedMotion || isPaused || pool.length <= 1) return;
-
-    const interval = setInterval(() => {
-      setBgIndex((i) => (i + 1) % pool.length);
-    }, 3500);
-    return () => clearInterval(interval);
-  }, [currentIndex, isPaused, imagePools]);
 
   const handlePointerDown = (e: React.PointerEvent) => {
     touchStartXRef.current = e.clientX;
@@ -159,7 +149,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ products, onSelectCa
       {SLIDES.map((slide, index) => {
         const isActive = index === currentIndex;
         const pool = imagePools[index];
-        const photo = pool[isActive ? bgIndex % pool.length : 0];
+        const photo = pool[0];
         const photoUrl = assetPath(`/images/hero/${photo}`);
         return (
           <div

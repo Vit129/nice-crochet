@@ -101,7 +101,14 @@ for f in "$SOURCE_DIR"/*; do
   # (stored as landscape pixels + an orientation tag) ship sideways/tilted
   # unless this runs. cwebp reads plain pixels, so this must happen first.
   oriented_jpg="$TEMP_DIR/${clean_name}-oriented.jpg"
-  python3 -c "
+  PYTHON_BIN="python3"
+  for py in python3 /Library/Frameworks/Python.framework/Versions/3.13/bin/python3 /usr/local/bin/python3; do
+    if command -v "$py" >/dev/null 2>&1 && "$py" -c "import PIL" >/dev/null 2>&1; then
+      PYTHON_BIN="$py"
+      break
+    fi
+  done
+  "$PYTHON_BIN" -c "
 from PIL import Image, ImageOps
 img = ImageOps.exif_transpose(Image.open('$input_for_cwebp'))
 img.save('$oriented_jpg', quality=95)
