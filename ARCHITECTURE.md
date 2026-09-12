@@ -115,3 +115,14 @@ Per `rules/coding.md` §6, the mockup HTML (`nice-crochet-mockup-v2.html`) is th
 1. **Framework — Next.js static export confirmed**, no disagreement between reviewers. Vite+React SPA loses pre-rendered HTML per page (hurts LCP + crawlers) — actively worse than Next.js export, not just unnecessary. Astro would ship less JS but the gap is negligible against image payload size for a 3-page, ~40–60 item catalog; not worth the framework-switch overhead.
 2. **`next/image` — skip it entirely, confirmed.** `unoptimized: true` still drags in Next's wrapper/loader machinery for zero benefit once images are pre-sized at build time. Use a small `<ResponsiveImage>` component wrapping a plain `<img>` with `srcSet`/`loading="lazy"`/`decoding="async"`.
 3. **Data model — single `products.json`, not folder-per-piece** (agy's correction to the original draft) — one file is easier for a non-technical owner to navigate than 50 folders. Requires build-time Zod validation (`scripts/validate-catalog.ts`) to catch broken JSON / missing photo references before they silently break the build.
+
+## Dev & QA Quality Gates
+
+The static showcase site enforces automated quality gates at build and deployment:
+
+| Quality Gate | Tool / Script | Verification Invariant |
+|---|---|---|
+| **Catalog Schema & Integrity** | `npm run validate` (`tsx scripts/validate-catalog.ts`) | Strict Zod validation on `products.json`. Fails build on syntax errors, missing fields, or referenced WebP photos that do not physically exist in `public/images/`. |
+| **Asset Pipeline Verification** | `npm run build:images` (`scripts/build-images.sh`) | Ensures EXIF auto-transposition and derived WebP generation (thumb, card, hero) produce deterministic kebab-case filenames without bloating git with HEIC binaries. |
+| **Static Export Gate** | `npm run build` (`next build`) | Enforces zero server-side route leakages; confirms pure static HTML/CSS export compatible with GitHub Pages subpath deployment. |
+
