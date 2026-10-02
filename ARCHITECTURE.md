@@ -126,3 +126,8 @@ The static showcase site enforces automated quality gates at build and deploymen
 | **Asset Pipeline Verification** | `npm run build:images` (`scripts/build-images.sh`) | Ensures EXIF auto-transposition and derived WebP generation (thumb, card, hero) produce deterministic kebab-case filenames without bloating git with HEIC binaries. |
 | **Static Export Gate** | `npm run build` (`next build`) | Enforces zero server-side route leakages; confirms pure static HTML/CSS export compatible with GitHub Pages subpath deployment. |
 
+
+## Structure deviations
+
+- §2 no stray files at root (STRONG) — `products.json` stays at the repo root: it is the single source of truth read by `src/app/page.tsx`, `scripts/validate-catalog.ts`, and referenced by the Apps Script; moving it risks recreating the duplicated-copy bug recorded above — revisit if the catalog moves to a data store/CMS.
+- §1 role dirs — `DESIGN/` holds a brand logo asset (data role) tracked at root — revisit if assets move under `public/`. (`PRODUCTS/` is gitignored local source photos, not part of the repo.)

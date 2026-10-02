@@ -9,6 +9,7 @@
     "build": "tsx scripts/validate-catalog.ts && next build",
     "start": "next start",
     "validate": "tsx scripts/validate-catalog.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
     "build:images": "bash scripts/build-images.sh",
     "gas:push": "cd scripts/apps-script && clasp push",
     "gas:deploy": "cd scripts/apps-script && clasp push && clasp deploy",
