@@ -36,3 +36,8 @@ bash scripts/build-images.sh   # HEIC → 3 WebP sizes into public/images/
 ```
 
 Then add the corresponding entry to `products.json` (the single source of truth for the catalog — see `ARCHITECTURE.md`'s data model section for the schema and the `showOnShelf`/`showOnHome` flags).
+
+## License
+
+- **Source Code**: [MIT License](./LICENSE)
+- **Content, Images & Brand**: Copyright (c) 2026 Supavit Choenthanomwong (Vit129). All rights reserved.
