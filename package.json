@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 127.0.0.1",
+    "preview": "npm run build && python3 -m http.server 4173 --directory out --bind 127.0.0.1",
+    "release:check": "npm test && npm run validate && npm run build",
     "dev:clean": "bash scripts/start-dev.sh",
     "build": "tsx scripts/validate-catalog.ts && next build",
     "start": "next start",

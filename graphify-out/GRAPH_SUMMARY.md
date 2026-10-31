@@ -1,15 +1,15 @@
-# Graph Summary — graphify-refresh
+# Graph Summary — delivery-workflow-completion
 _Auto-generated from GRAPH_REPORT.md · do not edit manually_
 _Regen: `graphify update .`_
 
 ## Summary
-- 481 nodes · 558 edges · 33 communities (25 shown, 8 thin omitted)
+- 493 nodes · 569 edges · 34 communities (26 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 
 ## Graph Freshness
-- Built from commit: `1fad8091`
+- Built from commit: `b8d01196`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,8 +32,8 @@ A high-degree node isn't always architecturally central - a widely-used
 utility/config file can rack up more edges than a real coupler while only
 ever touching one area. This ranks by how many DIFFERENT communities a
 node's neighbors span, not by raw edge count.
-1. `Nice Crochet — Design Language` - bridges 1 areas (20 edges)
-2. `Product` - bridges 1 areas (17 edges)
+1. `Product` - bridges 1 areas (17 edges)
+2. `Nice Crochet — System Architecture` - bridges 1 areas (16 edges)
 3. `@media (max-width: 860px)` - bridges 1 areas (13 edges)
 4. `SLIDES` - bridges 1 areas (6 edges)
 5. `searchProducts()` - bridges 1 areas (5 edges)

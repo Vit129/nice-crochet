@@ -1,16 +1,16 @@
-# Graph Report - graphify-refresh  (2026-10-31)
+# Graph Report - delivery-workflow-completion  (2026-10-31)
 
 ## Corpus Check
-- 45 files · ~1,422,415 words
+- 46 files · ~1,422,595 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 481 nodes · 558 edges · 33 communities (25 shown, 8 thin omitted)
+- 493 nodes · 569 edges · 34 communities (26 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1fad8091`
+- Built from commit: `b8d01196`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,8 +31,8 @@ A high-degree node isn't always architecturally central - a widely-used
 utility/config file can rack up more edges than a real coupler while only
 ever touching one area. This ranks by how many DIFFERENT communities a
 node's neighbors span, not by raw edge count.
-1. `Nice Crochet — Design Language` - bridges 1 areas (20 edges)
-2. `Product` - bridges 1 areas (17 edges)
+1. `Product` - bridges 1 areas (17 edges)
+2. `Nice Crochet — System Architecture` - bridges 1 areas (16 edges)
 3. `@media (max-width: 860px)` - bridges 1 areas (13 edges)
 4. `SLIDES` - bridges 1 areas (6 edges)
 5. `searchProducts()` - bridges 1 areas (5 edges)
@@ -57,7 +57,7 @@ node's neighbors span, not by raw edge count.
 ## Import Cycles
 - None detected.
 
-## Communities (33 total, 8 thin omitted)
+## Communities (34 total, 8 thin omitted)
 
 ### Community 0 - "globals.css"
 Cohesion: 0.01
@@ -68,20 +68,20 @@ Cohesion: 0.09
 Nodes (35): metadata, allProducts, Home(), AboutSection(), Footer(), HeroCarousel(), HeroCarouselProps, Slide (+27 more)
 
 ### Community 2 - "scripts"
-Cohesion: 0.07
-Nodes (28): dependencies, next, react, react-dom, zod, devDependencies, tsx, @types/node (+20 more)
+Cohesion: 0.06
+Nodes (30): dependencies, next, react, react-dom, zod, devDependencies, tsx, @types/node (+22 more)
 
 ### Community 3 - "search.test.ts"
 Cohesion: 0.09
 Nodes (24): getExpandedKeywords(), INVERTED_SYNONYM_INDEX, normalizeThaiPrefixes(), scoreProduct(), SearchMatchResult, SearchOptions, SYNONYM_MAP, tokenizeQuery() (+16 more)
 
 ### Community 4 - "Nice Crochet — System Architecture"
-Cohesion: 0.08
-Nodes (22): Before the first commit, Click tracking + sort-by-popularity — Google Apps Script, not SQLite (2026-08-24), Constraints (from the owner), Data model: catalog, not file list, Dev & QA Quality Gates, Hosting, Image pipeline (the actual hard part), Nice Crochet — System Architecture (+14 more)
+Cohesion: 0.12
+Nodes (16): Before the first commit, Click tracking + sort-by-popularity — Google Apps Script, not SQLite (2026-08-24), Constraints (from the owner), Data model: catalog, not file list, Dev & QA Quality Gates, Hosting, Image pipeline (the actual hard part), Nice Crochet — System Architecture (+8 more)
 
 ### Community 5 - "Nice Crochet — Design Language"
-Cohesion: 0.10
-Nodes (20): About page: "Good to know" removed, Contact split out (2026-08-23), Avoid, Carousel control visibility over light photos (2026-08-23), Colors, Components, Design direction, Footer and search suggestions (2026-08-23), Instagram added alongside TikTok (2026-08-25) (+12 more)
+Cohesion: 0.07
+Nodes (27): About page: "Good to know" removed, Contact split out (2026-08-23), Avoid, Carousel control visibility over light photos (2026-08-23), Colors, Components, Design direction, Footer and search suggestions (2026-08-23), Instagram added alongside TikTok (2026-08-25) (+19 more)
 
 ### Community 6 - "compilerOptions"
 Cohesion: 0.10
@@ -151,8 +151,12 @@ Nodes (3): __dirname, __filename, nextConfig
 Cohesion: 0.67
 Nodes (3): @media (max-width: 520px), .product-grid, .stat-row
 
+### Community 33 - "check.yml"
+Cohesion: 0.22
+Nodes (8): jobs, check, name, on, pull_request, push, permissions, contents
+
 ## Knowledge Gaps
-- **350 isolated node(s):** `name`, `push`, `workflow_dispatch`, `contents`, `pages` (+345 more)
+- **358 isolated node(s):** `name`, `pull_request`, `push`, `contents`, `check` (+353 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 - **4 possibly unreachable function(s):** `__dirname`, `__dirname`, `__filename`, `__filename`
@@ -162,16 +166,16 @@ Nodes (3): @media (max-width: 520px), .product-grid, .stat-row
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Product` connect `page.tsx` to `search.test.ts`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **What connects `name`, `push`, `workflow_dispatch` to the rest of the system?**
-  _350 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **What connects `name`, `pull_request`, `push` to the rest of the system?**
+  _358 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `globals.css` be split into smaller, more focused modules?**
   _Cohesion score 0.012987012987012988 - nodes in this community are weakly interconnected._
 - **Should `page.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.09411764705882353 - nodes in this community are weakly interconnected._
 - **Should `scripts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `search.test.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.08831908831908832 - nodes in this community are weakly interconnected._
 - **Should `Nice Crochet — System Architecture` be split into smaller, more focused modules?**
-  _Cohesion score 0.08 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._

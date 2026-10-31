@@ -41,3 +41,8 @@ Then add the corresponding entry to `products.json` (the single source of truth 
 
 - **Source Code**: [MIT License](./LICENSE)
 - **Content, Images & Brand**: Copyright (c) 2026 Supavit Choenthanomwong (Vit129). All rights reserved.
+# Local development and release
+
+Use `make start` (or `npm run dev`) for the loopback-only dev server. `make preview` builds and serves the production bundle on `127.0.0.1:4173`. Before publishing, run `make release-check`, which runs `npm test`, catalog validation, and the production build. Pull request CI and the Pages workflow run the same gates before the Pages deployment job.
+
+The GitHub Pages workflow is the website release path. Apps Script is a separate integration: its `gas:push` and `gas:deploy` commands affect the configured Apps Script project and are not part of website release. Use `npm run gas:deploy` only when intentionally publishing that integration.
