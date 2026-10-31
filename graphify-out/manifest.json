@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   ".github/workflows/pages.yml": {
-    "mtime": 1793423212.671064,
-    "ast_hash": "ece55070c21a4f51c0a40337f0dfa882",
+    "mtime": 1793424390.7933905,
+    "ast_hash": "9bb77bc3737fe722468ec019d1f2ec5b",
     "semantic_hash": ""
   },
   "cliff.toml": {
@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1793423212.6873713,
-    "ast_hash": "0f4c5d863400bcea9d9325de2b7c1f61",
+    "mtime": 1793424448.09668,
+    "ast_hash": "f17eacfd12865c48bdd5d8c2f5c74108",
     "semantic_hash": ""
   },
   "products.json": {
@@ -195,8 +195,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1793423212.6814644,
-    "ast_hash": "a3b7c552d403886785270da79f072d85",
+    "mtime": 1793424390.7945523,
+    "ast_hash": "b6aa1d56d39ff65599252ef46276cc82",
     "semantic_hash": ""
   },
   "docs/adr/0001-static-nextjs-export.md": {
@@ -1342,6 +1342,11 @@
   "public/images/thumb/yellow-tan-lattice-tote-flower-charm-flat-white-3.webp": {
     "mtime": 1793423213.2754316,
     "ast_hash": "6e674013fe5769d3889f4e58f034efcb",
+    "semantic_hash": ""
+  },
+  ".github/workflows/check.yml": {
+    "mtime": 1793424390.793766,
+    "ast_hash": "2c24cca888fbc7785addf227d565287c",
     "semantic_hash": ""
   }
 }
