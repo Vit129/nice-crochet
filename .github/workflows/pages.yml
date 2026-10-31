@@ -27,6 +27,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - run: npm test
+      - run: npm run validate
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /nice-crochet
