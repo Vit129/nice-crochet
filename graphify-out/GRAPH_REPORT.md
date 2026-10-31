@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 493 nodes · 567 edges · 35 communities (27 shown, 8 thin omitted)
+- 493 nodes · 569 edges · 34 communities (26 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e9807b8c`
+- Built from commit: `b8d01196`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,7 +24,7 @@
 7. `assetPath()` - 8 edges
 8. `Nice Crochet — Product Context` - 8 edges
 9. `ProductCategory` - 7 edges
-10. `Nice Crochet` - 6 edges
+10. `doGet()` - 6 edges
 
 ## Cross-Cutting Nodes (span the most distinct areas of the codebase)
 A high-degree node isn't always architecturally central - a widely-used
@@ -32,15 +32,15 @@ utility/config file can rack up more edges than a real coupler while only
 ever touching one area. This ranks by how many DIFFERENT communities a
 node's neighbors span, not by raw edge count.
 1. `Product` - bridges 1 areas (17 edges)
-2. `@media (max-width: 860px)` - bridges 1 areas (13 edges)
-3. `SLIDES` - bridges 1 areas (6 edges)
-4. `searchProducts()` - bridges 1 areas (5 edges)
-5. `fetchClickCounts()` - bridges 1 areas (4 edges)
-6. `fetchProductFlags()` - bridges 1 areas (4 edges)
-7. `scoreProduct()` - bridges 1 areas (4 edges)
-8. `@media (max-width: 520px)` - bridges 1 areas (3 edges)
-9. `@media (prefers-color-scheme: dark)` - bridges 1 areas (2 edges)
-10. `@media (prefers-reduced-motion: reduce)` - bridges 1 areas (2 edges)
+2. `Nice Crochet — System Architecture` - bridges 1 areas (16 edges)
+3. `@media (max-width: 860px)` - bridges 1 areas (13 edges)
+4. `SLIDES` - bridges 1 areas (6 edges)
+5. `searchProducts()` - bridges 1 areas (5 edges)
+6. `fetchClickCounts()` - bridges 1 areas (4 edges)
+7. `fetchProductFlags()` - bridges 1 areas (4 edges)
+8. `scoreProduct()` - bridges 1 areas (4 edges)
+9. `@media (max-width: 520px)` - bridges 1 areas (3 edges)
+10. `@media (prefers-color-scheme: dark)` - bridges 1 areas (2 edges)
 
 ## Surprising Connections (you probably didn't know these)
 - `fetch(action=counts)` --http_calls--> `jsonOut()`  [INFERRED]
@@ -57,7 +57,7 @@ node's neighbors span, not by raw edge count.
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 8 thin omitted)
+## Communities (34 total, 8 thin omitted)
 
 ### Community 0 - "globals.css"
 Cohesion: 0.01
@@ -80,8 +80,8 @@ Cohesion: 0.12
 Nodes (16): Before the first commit, Click tracking + sort-by-popularity — Google Apps Script, not SQLite (2026-08-24), Constraints (from the owner), Data model: catalog, not file list, Dev & QA Quality Gates, Hosting, Image pipeline (the actual hard part), Nice Crochet — System Architecture (+8 more)
 
 ### Community 5 - "Nice Crochet — Design Language"
-Cohesion: 0.10
-Nodes (20): About page: "Good to know" removed, Contact split out (2026-08-23), Avoid, Carousel control visibility over light photos (2026-08-23), Colors, Components, Design direction, Footer and search suggestions (2026-08-23), Instagram added alongside TikTok (2026-08-25) (+12 more)
+Cohesion: 0.07
+Nodes (27): About page: "Good to know" removed, Contact split out (2026-08-23), Avoid, Carousel control visibility over light photos (2026-08-23), Colors, Components, Design direction, Footer and search suggestions (2026-08-23), Instagram added alongside TikTok (2026-08-25) (+19 more)
 
 ### Community 6 - "compilerOptions"
 Cohesion: 0.10
@@ -155,10 +155,6 @@ Nodes (3): @media (max-width: 520px), .product-grid, .stat-row
 Cohesion: 0.22
 Nodes (8): jobs, check, name, on, pull_request, push, permissions, contents
 
-### Community 34 - "Nice Crochet"
-Cohesion: 0.25
-Nodes (7): Adding new photos, License, Local development and release, Nice Crochet, Pages, Run locally, Stack
-
 ## Knowledge Gaps
 - **358 isolated node(s):** `name`, `pull_request`, `push`, `contents`, `check` (+353 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -182,4 +178,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `search.test.ts` be split into smaller, more focused modules?**
   _Cohesion score 0.08831908831908832 - nodes in this community are weakly interconnected._
 - **Should `Nice Crochet — System Architecture` be split into smaller, more focused modules?**
-  _Cohesion score 0.11764705882352941 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._
