@@ -1,0 +1,28 @@
+README.md
+  s_53ad839a68fb1c::t_2ccbcd254b4d94 44-48
+package.json
+  s_53ad839a68fb1c::t_05f303e4ab2b69 8
+  s_53ad839a68fb1c::t_2ccbcd254b4d94 7,9
+.github/workflows/pages.yml
+  s_53ad839a68fb1c::t_2ccbcd254b4d94 30-31
+Makefile
+  s_53ad839a68fb1c::t_2ccbcd254b4d94 1-18
+.github/workflows/check.yml
+  s_53ad839a68fb1c::t_2ccbcd254b4d94 1-23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "e9807b8c326c41bebc4651b2876cbef59490fed6",
+  "prompts": {},
+  "sessions": {
+    "s_53ad839a68fb1c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a18fb7-5316-7db2-acef-76f7f2031027",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
