@@ -1,0 +1,19 @@
+.gitignore
+  s_b280901ef8290e::t_e1a236e7172a0e 29-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.3",
+  "base_commit_sha": "c0e4985a288b7d62241723a69161087ca7d60b5a",
+  "prompts": {},
+  "sessions": {
+    "s_b280901ef8290e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_b280901ef8290e",
+        "model": "unknown"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
