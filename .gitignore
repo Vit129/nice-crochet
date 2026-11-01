@@ -26,3 +26,5 @@ graphify-out/
 # in click-tracking.gs: never commit a real resource ID to this public repo.
 # Copy scripts/apps-script/.clasp.json.example to .clasp.json and fill it in.
 scripts/apps-script/.clasp.json
+
+.tmp/
