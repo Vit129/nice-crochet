@@ -14,7 +14,6 @@ out/
 agent-memory/
 .claude/worktrees/
 .kouen-worktrees/
-graphify-out/
 
 # OS / Editor files
 .DS_Store
