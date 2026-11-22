@@ -1,5 +1,6 @@
 import React from 'react';
 import { ResponsiveImage } from './ResponsiveImage';
+import { th } from '@/strings/th';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -13,29 +14,25 @@ export const AboutSection: React.FC = () => {
           />
         </div>
         <div className="about-copy">
-          <span className="eyebrow">คนทำ</span>
-          <h1 className="display">หวัดดีค่ะ เราชื่อไนซ์</h1>
+          <span className="eyebrow">{th.about.maker}</span>
+          <h1 className="display">{th.about.title}</h1>
           <p>
-            ถักโครเชต์มาตั้งแต่ปี 2019 ค่ะ เริ่มจากอยากมีอะไรทำเวลานั่งดู TikTok เฉยๆ
-            ตอนนี้กลายเป็นสิ่งที่ทำแทบทุกคืนไปแล้ว ทุกชิ้นในชั้นนี้ถักด้วยมือทีละไจ
-            มักจะมีคลิปเปิดคลอไปด้วยสำหรับ @yukiandnice
+            {th.about.story1}
           </p>
           <p>
-            ตั้งใจทำทีละน้อยๆ ค่ะ เพราะเป็นวิธีเดียวที่จะทำให้กระเป๋าทุกใบยังได้ทรงที่พอใจ
-            และดอกไม้ทุกดอกมีจำนวนกลีบที่กล้าเซ็นชื่อรับรองได้
+            {th.about.story2}
           </p>
           <p className="pull">
-            “ถ้าชิ้นไหนไม่ใช่แบบที่อยากเก็บไว้ใช้เอง ก็จะไม่เอาขึ้นชั้น”
+            {th.about.quote}
           </p>
         </div>
       </div>
 
       <div className="about-contact">
-        <span className="kicker">ติดต่อเรา</span>
-        <h2 className="display">ทักมาคุยกันได้ หรือถามเรื่อง custom ได้เลย</h2>
+        <span className="kicker">{th.about.contact}</span>
+        <h2 className="display">{th.about.contactTitle}</h2>
         <p>
-          ทุกชิ้นที่นี่ทำตามสั่งค่ะ เปลี่ยนสี ปรับขนาด หรือขอแบบพิเศษได้ตามต้องการ
-          ทางที่ไวที่สุดในการติดต่อคือ TikTok
+          {th.about.contactBody}
         </p>
         <div className="social-links">
           <a

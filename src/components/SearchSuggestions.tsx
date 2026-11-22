@@ -3,6 +3,7 @@
 import React from 'react';
 import { Product, getColourHex } from '@/types/product';
 import { ResponsiveImage } from './ResponsiveImage';
+import { th } from '@/strings/th';
 
 interface SearchSuggestionsProps {
   query: string;
@@ -24,7 +25,7 @@ export const SearchSuggestions: React.FC<SearchSuggestionsProps> = ({
   if (suggestions.length === 0) {
     return (
       <div className="search-suggestions" role="listbox" id="search-suggestions">
-        <div className="suggestion-empty">ไม่พบชิ้นงานที่ตรงกับ “{query.trim()}”</div>
+        <div className="suggestion-empty">{th.suggestionEmpty} “{query.trim()}”</div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Product } from '@/types/product';
+import { th } from '@/strings/th';
 
 interface StatsRowProps {
   products: Product[];
@@ -24,20 +25,20 @@ export const StatsRow: React.FC<StatsRowProps> = ({ products }) => {
       <div className="craft-spotlight">
         <div className="craft-spotlight-body">
           <p className="craft-spotlight-caption">
-            ทุกห่วงถักด้วยมือ ทีละฝีเข็ม ไม่มีชิ้นไหนเหมือนกันเป๊ะ
+            {th.stats.caption}
           </p>
           <div className="stat-row">
             <div className="stat">
               <b>{categoryCount}</b>
-              <span>หมวดสินค้า</span>
+              <span>{th.stats.categories}</span>
             </div>
             <div className="stat">
               <b>{colourCount}</b>
-              <span>เฉดสีไหม</span>
+              <span>{th.stats.colours}</span>
             </div>
             <div className="stat">
               <b>100%</b>
-              <span>ถักมือ ไม่ใช้เครื่องจักร</span>
+              <span>{th.stats.handmade}</span>
             </div>
           </div>
         </div>
