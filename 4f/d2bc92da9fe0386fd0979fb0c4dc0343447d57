@@ -1,0 +1,37 @@
+tests/fixtures/bad-quarantine/src/lib/rogue.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1-2
+tests/architecture-guard.test.ts
+  s_98a8905e812604::t_a8b1cecb7292de 60
+  s_98a8905e812604::t_2a095ede30ac61 57-58,73
+  s_98a8905e812604::t_9ebf301ce51eb6 13
+  s_98a8905e812604::t_cd59c012131e48 2,10
+  s_98a8905e812604::t_276882e273333b 1,3-9,11-12,14-56,59,61-72,74-106
+tests/fixtures/clean/src/app/page.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1
+tests/fixtures/bad-ui/src/components/view.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1-8
+tests/fixtures/clean/src/components/view.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1
+tests/fixtures/bad-core/src/lib/search.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1-5
+tests/fixtures/clean/src/lib/clickTracking.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1
+tests/fixtures/clean/src/lib/search.fixture
+  s_98a8905e812604::t_6d80d25ec9139a 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "4fd2bc92da9fe0386fd0979fb0c4dc0343447d57",
+  "prompts": {},
+  "sessions": {
+    "s_98a8905e812604": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a20134-0694-7531-9950-4ef0d11506bc",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
