@@ -1,0 +1,2 @@
+// fetch('/comment-only');
+export function load() { fetch('/api'); localStorage.getItem('x'); return window.location; }

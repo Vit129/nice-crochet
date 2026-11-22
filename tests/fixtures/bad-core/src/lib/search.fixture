@@ -1,0 +1,5 @@
+// import React from 'react'; window.fetch('/comment-only');
+import React from 'react';
+import type { NextPage } from 'next/page';
+import Widget from '@/components/Widget';
+export function search() { fetch('/api'); return [window, document, localStorage]; }
