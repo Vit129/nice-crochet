@@ -1,0 +1,39 @@
+src/components/HeroCarousel.tsx
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 6,28-31,38-41,48-51,58-61,68-71
+src/components/SearchSuggestions.tsx
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 6,28
+src/components/ShopGrid.tsx
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 16,123,233-234
+  s_b7b4efbd62e43f::t_5174ac6502306c 142
+src/strings/searchKeywords.ts
+  s_b7b4efbd62e43f::t_113665c7854fbe 29-34
+  s_b7b4efbd62e43f::t_e5233bf5020284 1-28
+src/lib/search.ts
+  s_b7b4efbd62e43f::t_113665c7854fbe 3,20,24-25,27-29,31-32,54
+src/strings/th.ts
+  s_b7b4efbd62e43f::t_e5233bf5020284 1-14
+src/components/AboutSection.tsx
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 3,17-18,26,32-33
+  s_b7b4efbd62e43f::t_8849b83f01f9a7 20,23,35
+src/components/ProductLightbox.tsx
+  s_b7b4efbd62e43f::t_5174ac6502306c 192
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 5,190
+src/components/StatsRow.tsx
+  s_b7b4efbd62e43f::t_7306b6ae2cb792 3,28,33,37,41
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "b50e145b2dff99f5b36b03919a0bc7d16294c1b6",
+  "prompts": {},
+  "sessions": {
+    "s_b7b4efbd62e43f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a2019d-271e-7e03-a4b4-ee565d22879f",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
