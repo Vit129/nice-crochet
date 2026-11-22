@@ -1,0 +1,27 @@
+src/types/product.ts
+  s_b7b4efbd62e43f::t_fea39953d58785 44
+  s_b7b4efbd62e43f::t_8849b83f01f9a7 1-2
+src/config/colors.css
+  s_b7b4efbd62e43f::t_fea39953d58785 1-49
+src/app/globals.css
+  s_b7b4efbd62e43f::t_fea39953d58785 2,4
+  s_b7b4efbd62e43f::t_5260f133b32181 293,308,368,375,392,398,899
+src/config/colors.ts
+  s_b7b4efbd62e43f::t_fea39953d58785 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "ee2e9d0bdd16a489b00a9d96f12383388e253c0c",
+  "prompts": {},
+  "sessions": {
+    "s_b7b4efbd62e43f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a2019d-271e-7e03-a4b4-ee565d22879f",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
