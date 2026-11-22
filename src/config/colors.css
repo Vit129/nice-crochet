@@ -1,0 +1,49 @@
+/* Design-system color tokens consumed by globals.css. */
+:root {
+  --bg: #F2FDFF;
+  --surface: #FFFFFF;
+  --surface-2: #E4F4F7;
+  --ink: #16282D;
+  --ink-soft: #4C6469;
+  --line: #D6ECEF;
+  --teal: #3B8FA1;
+  --teal-deep: #256575;
+  --teal-ink: #FFFFFF;
+  --mustard: #FFCF6C;
+  --mustard-deep: #A66E15;
+  --cream: #F7EAC2;
+  --focus: #16282D;
+  --white: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #F7FBFB;
+    --surface: #FFFFFF;
+    --surface-2: #EAF3F4;
+    --ink: #16282D;
+    --ink-soft: #4C6469;
+    --line: #DCEAEC;
+    --teal: #2E7A8C;
+    --teal-deep: #1D5666;
+    --teal-ink: #FFFFFF;
+    --mustard: #E8A93A;
+    --mustard-deep: #8C5A10;
+    --cream: #F7EAC2;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #F7FBFB;
+  --surface: #FFFFFF;
+  --surface-2: #EAF3F4;
+  --ink: #16282D;
+  --ink-soft: #4C6469;
+  --line: #DCEAEC;
+  --teal: #2E7A8C;
+  --teal-deep: #1D5666;
+  --teal-ink: #FFFFFF;
+  --mustard: #E8A93A;
+  --mustard-deep: #8C5A10;
+  --cream: #F7EAC2;
+}
