@@ -32,6 +32,10 @@ rg -n '\bfetch\(|XMLHttpRequest|localStorage|sessionStorage|indexedDB|document\.
 
 These are review commands, not automated gates. In the current source, `src/types/product.ts` computes an HSL fallback for unmapped product colours, `src/components/ProductLightbox.tsx` has one inline font size, and `src/app/globals.css` uses named `white`/`black` in `color-mix()`. Those are exceptions to the single-home conventions above and should be resolved when touching those areas. The only `fetch()` calls in `src/` are in `src/lib/clickTracking.ts`.
 
+### Browser-loaded resources
+
+`src/app/layout.tsx` keeps the Google Fonts preconnects and stylesheet link so the browser loads the same Baloo 2, Karla, and IBM Plex Mono resources. They are browser resource declarations; `clickTracking.ts` requests app data and cannot provide stylesheet/preconnect loading without changing behavior.
+
 ## Runtime data and I/O
 
 - `src/app/page.tsx` imports `products.json`, applies optional live product-flag overrides from `fetchProductFlags()`, and passes the resulting products to the page components.
