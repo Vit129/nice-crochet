@@ -1,252 +1,6 @@
 import { Product } from '@/types/product';
 
-/**
- * Domain-specific bilingual synonym and semantic knowledge graph.
- * Maps canonical English concepts to Thai and English variants/synonyms.
- */
-export const SYNONYM_MAP: Record<string, string[]> = {
-  // --- Items / Fruits / Themes ---
-  strawberry: [
-    'strawberry',
-    'strawberries',
-    'สตรอเบอร์รี่',
-    'สตรอเบอรี่',
-    'สตรอว์เบอร์รี',
-    'สตรอเบอรรี่',
-    'สตอเบอรี่',
-    'สตอเบอร์รี่',
-    'สตอ',
-    'สตรอ',
-  ],
-  carrot: ['carrot', 'carrots', 'แครอท', 'แคร์รอต', 'แคร์ร็อต'],
-  pineapple: ['pineapple', 'สับปะรด', 'สัปปะรด', 'พายแอปเปิ้ล', 'พายแอปเปิล'],
-  flower: [
-    'flower',
-    'flowers',
-    'floral',
-    'daisy',
-    'ดอกไม้',
-    'ดอก',
-    'เดซี่',
-    'ฟลาวเวอร์',
-    'ลายดอก',
-    'กลีบดอก',
-  ],
-  charm: [
-    'charm',
-    'charms',
-    'keychain',
-    'keychains',
-    'pendant',
-    'พวงกุญแจ',
-    'ชาร์ม',
-    'ที่ห้อย',
-    'ห้อยกระเป๋า',
-    'พวงห้อย',
-  ],
-  bucket: [
-    'bucket',
-    'ทรงถัง',
-    'บักเก็ต',
-    'บักเกต',
-    'ถัง',
-    'กระเป๋าถัง',
-  ],
-  lattice: [
-    'lattice',
-    'mesh',
-    'ตาข่าย',
-    'แลตทิซ',
-    'โปร่ง',
-    'ถักโปร่ง',
-    'ลายตาข่าย',
-    'รู',
-  ],
-  shoulder: [
-    'shoulder',
-    'สะพายไหล่',
-    'สะพาย',
-    'ไหล่',
-    'สายสะพาย',
-    'คล้องไหล่',
-  ],
-  handmade: [
-    'handmade',
-    'crochet',
-    'knit',
-    'knitting',
-    'ถัก',
-    'แฮนด์เมด',
-    'ทำมือ',
-    'โครเชต์',
-    'ไหมพรม',
-  ],
-
-  // --- Categories ---
-  tote: [
-    'tote',
-    'totes',
-    'bag',
-    'bags',
-    'market',
-    'กระเป๋า',
-    'กระเป๋าถัก',
-    'กระเป๋าหิ้ว',
-    'กระเป๋าสะพาย',
-    'ถุงผ้า',
-    'โท้ท',
-    'โทท',
-    'ย่าม',
-  ],
-  pouch: [
-    'pouch',
-    'pouches',
-    'purse',
-    'purses',
-    'เพาช์',
-    'เพ้าช์',
-    'กระเป๋าเล็ก',
-    'กระเป๋าเหรียญ',
-    'กระเป๋าใส่เหรียญ',
-    'ซอง',
-    'กระเป๋าจิ๋ว',
-  ],
-  card: [
-    'card',
-    'cards',
-    'holder',
-    'holders',
-    'wallet',
-    'wallets',
-    'การ์ด',
-    'ใส่บัตร',
-    'ที่ใส่บัตร',
-    'กระเป๋าบัตร',
-    'กระเป๋าใส่บัตร',
-    'เก็บบัตร',
-    'นามบัตร',
-  ],
-
-  // --- Colours ---
-  red: [
-    'red',
-    'cherry',
-    'crimson',
-    'ruby',
-    'แดง',
-    'สีแดง',
-    'เชอร์รี่',
-    'เชอรี่',
-    'แดงเชอร์รี่',
-  ],
-  cream: [
-    'cream',
-    'ivory',
-    'off-white',
-    'ครีม',
-    'สีครีม',
-    'ขาวครีม',
-    'ขาวนวล',
-  ],
-  white: [
-    'white',
-    'ขาว',
-    'สีขาว',
-  ],
-  brown: [
-    'brown',
-    'chocolate',
-    'น้ำตาล',
-    'สีน้ำตาล',
-    'น้ำตาลเข้ม',
-  ],
-  tan: [
-    'tan',
-    'beige',
-    'sand',
-    'แทน',
-    'สีแทน',
-    'เบจ',
-    'สีเบจ',
-    'น้ำตาลอ่อน',
-  ],
-  camel: [
-    'camel',
-    'khaki',
-    'คาเมล',
-    'สีคาเมล',
-    'กากี',
-    'สีกากี',
-    'อูฐ',
-  ],
-  yellow: [
-    'yellow',
-    'gold',
-    'golden',
-    'เหลือง',
-    'สีเหลือง',
-    'ทอง',
-  ],
-  mustard: [
-    'mustard',
-    'มัสตาร์ด',
-    'สีมัสตาร์ด',
-    'เหลืองมัสตาร์ด',
-    'มัสตาด',
-  ],
-  orange: [
-    'orange',
-    'carrot',
-    'ส้ม',
-    'สีส้ม',
-  ],
-  green: [
-    'green',
-    'sage',
-    'olive',
-    'เขียว',
-    'สีเขียว',
-    'เขียวตุ่น',
-    'เขียวเสจ',
-    'เสจ',
-    'เซจ',
-  ],
-  plum: [
-    'plum',
-    'purple',
-    'wine',
-    'maroon',
-    'berry',
-    'พลัม',
-    'สีพลัม',
-    'ม่วง',
-    'สีม่วง',
-    'ไวน์',
-    'เปลือกมังคุด',
-  ],
-  charcoal: [
-    'charcoal',
-    'grey',
-    'gray',
-    'black',
-    'ชาโคล',
-    'สีชาโคล',
-    'เทา',
-    'สีเทา',
-    'ดำ',
-  ],
-  denim: [
-    'denim',
-    'blue',
-    'navy',
-    'เดนิม',
-    'สียีนส์',
-    'ยีนส์',
-    'น้ำเงิน',
-    'สีน้ำเงิน',
-    'ฟ้า',
-  ],
-};
+import { SYNONYM_MAP, thaiSearchPrefixes } from '@/strings/searchKeywords';
 
 // Build inverted fast-lookup index: synonym -> canonical key
 const INVERTED_SYNONYM_INDEX = new Map<string, string[]>();
@@ -263,19 +17,19 @@ Object.entries(SYNONYM_MAP).forEach(([canonicalKey, synonyms]) => {
 });
 
 /**
- * Remove leading "สี" or handle common Thai compound prefixes
+ * Remove leading colour words or handle common product compound prefixes.
  */
 function normalizeThaiPrefixes(token: string): string[] {
   const results = new Set<string>([token]);
-  if (token.startsWith('สี') && token.length > 2) {
-    results.add(token.slice(2)); // e.g. "สีแดง" -> "แดง"
+  if (token.startsWith(thaiSearchPrefixes.colour) && token.length > thaiSearchPrefixes.colour.length) {
+    results.add(token.slice(thaiSearchPrefixes.colour.length));
   }
-  if (token.startsWith('กระเป๋า') && token.length > 7) {
-    results.add('กระเป๋า');
-    results.add(token.slice(7)); // e.g. "กระเป๋าใส่บัตร" -> "ใส่บัตร"
+  if (token.startsWith(thaiSearchPrefixes.bag) && token.length > thaiSearchPrefixes.bag.length) {
+    results.add(thaiSearchPrefixes.bag);
+    results.add(token.slice(thaiSearchPrefixes.bag.length));
   }
-  if (token.startsWith('ที่') && token.length > 3) {
-    results.add(token.slice(3)); // e.g. "ที่ใส่บัตร" -> "ใส่บัตร"
+  if (token.startsWith(thaiSearchPrefixes.holder) && token.length > 3) {
+    results.add(token.slice(3));
   }
   return Array.from(results);
 }
@@ -297,7 +51,7 @@ export function tokenizeQuery(query: string): string[] {
     const subTerms = normalizeThaiPrefixes(raw);
     subTerms.forEach((st) => finalTokens.add(st));
 
-    // Check for compound Thai substrings in dictionary (e.g. "กระเป๋าแดง" -> "กระเป๋า" + "แดง")
+    // Check for compound Thai substrings in the synonym dictionary.
     for (const syn of INVERTED_SYNONYM_INDEX.keys()) {
       if (syn.length >= 2 && raw.includes(syn) && raw !== syn) {
         finalTokens.add(syn);

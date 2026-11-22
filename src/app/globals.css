@@ -1,52 +1,7 @@
 /* Nice Crochet · Design System from DESIGN.md */
-:root {
-  --bg: #F2FDFF;
-  --surface: #FFFFFF;
-  --surface-2: #E4F4F7;
-  --ink: #16282D;
-  --ink-soft: #4C6469;
-  --line: #D6ECEF;
-  --teal: #3B8FA1;
-  --teal-deep: #256575;
-  --teal-ink: #FFFFFF;
-  --mustard: #FFCF6C;
-  --mustard-deep: #A66E15;
-  --cream: #F7EAC2;
-  --focus: #16282D;
-  font-size: 16px;
-}
+@import '../config/colors.css';
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #F7FBFB;
-    --surface: #FFFFFF;
-    --surface-2: #EAF3F4;
-    --ink: #16282D;
-    --ink-soft: #4C6469;
-    --line: #DCEAEC;
-    --teal: #2E7A8C;
-    --teal-deep: #1D5666;
-    --teal-ink: #FFFFFF;
-    --mustard: #E8A93A;
-    --mustard-deep: #8C5A10;
-    --cream: #F7EAC2;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #F7FBFB;
-  --surface: #FFFFFF;
-  --surface-2: #EAF3F4;
-  --ink: #16282D;
-  --ink-soft: #4C6469;
-  --line: #DCEAEC;
-  --teal: #2E7A8C;
-  --teal-deep: #1D5666;
-  --teal-ink: #FFFFFF;
-  --mustard: #E8A93A;
-  --mustard-deep: #8C5A10;
-  --cream: #F7EAC2;
-}
+:root { font-size: 16px; }
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -335,7 +290,7 @@ nav.pages button:focus-visible {
   flex-direction: column;
   justify-content: center;
   padding: 0 clamp(24px, 6vw, 72px);
-  color: #fff;
+  color: var(--white);
 }
 
 .carousel-copy .eyebrow {
@@ -350,7 +305,7 @@ nav.pages button:focus-visible {
   font-size: clamp(2rem, 4.4vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: -0.01em;
-  color: #fff;
+  color: var(--white);
 }
 
 .carousel-copy p {
@@ -410,14 +365,14 @@ nav.pages button:focus-visible {
 }
 
 .carousel-arrow:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--white);
   outline-offset: 2px;
 }
 
 .carousel-arrow svg {
   width: 15px;
   height: 15px;
-  stroke: #fff;
+  stroke: var(--white);
 }
 
 .carousel-dots {
@@ -434,13 +389,13 @@ nav.pages button:focus-visible {
   border: none;
   padding: 0;
   cursor: pointer;
-  background: #fff;
+  background: var(--white);
   opacity: 0.5;
   transition: opacity 220ms ease-out, width 220ms ease-out;
 }
 
 .carousel-dot:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--white);
   outline-offset: 3px;
 }
 
@@ -941,7 +896,7 @@ nav.pages button:focus-visible {
   z-index: 2;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 0.64rem;
-  color: #fff;
+  color: var(--white);
   background: color-mix(in oklab, black 60%, transparent);
   border-radius: 999px;
   padding: 3px 8px;

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Product, getColourHex } from '@/types/product';
+import { th } from '@/strings/th';
 import { ResponsiveImage } from './ResponsiveImage';
 
 interface ProductLightboxProps {
@@ -186,10 +187,9 @@ export const ProductLightbox: React.FC<ProductLightboxProps> = ({ product, onClo
             </div>
 
             <div className="lightbox-contact-hint">
-              <strong>ทำตามสั่ง เพื่อคุณโดยเฉพาะ</strong>
+              <strong>{th.lightbox.title}</strong>
               <p>
-                ชิ้นนี้ถักด้วยมือจากไหมหนึ่งไจตั้งแต่ต้นจนจบ ไม่มีชิ้นไหนเหมือนกันเป๊ะ
-                เปลี่ยนสีหรือขนาดได้ตามต้องการเลยค่ะ
+                {th.lightbox.body}
               </p>
               <a
                 className="btn btn-primary"

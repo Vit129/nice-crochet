@@ -13,6 +13,7 @@ import { SearchSuggestions } from './SearchSuggestions';
 import { ProductLightbox } from './ProductLightbox';
 import { recordClick, fetchClickCounts } from '@/lib/clickTracking';
 import { searchProducts } from '@/lib/search';
+import { th } from '@/strings/th';
 
 interface ShopGridProps {
   products: Product[];
@@ -119,7 +120,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
   return (
     <>
-      <h1 className="visually-hidden">ชั้นวางสินค้า — ค้นหาและกรองดูทุกชิ้น</h1>
+      <h1 className="visually-hidden">{th.shop.heading}</h1>
 
       <div className="wrap shop-head">
         <div className="toolbar">
@@ -138,7 +139,7 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
               <input
                 type="search"
                 id="shop-search"
-                placeholder="ค้นหา “สตรอเบอร์รี่”, “กระเป๋า”, “tote”, “mustard”…"
+                placeholder={th.shop.placeholder}
                 aria-label="Search pieces"
                 role="combobox"
                 aria-expanded={isSuggestionsOpen}
@@ -229,8 +230,8 @@ export const ShopGrid: React.FC<ShopGridProps> = ({
 
           {filteredProducts.length === 0 && (
             <div className="no-results" id="no-results" style={{ display: 'block' }}>
-              <strong>ยังไม่มีชิ้นไหนตรงกับที่ค้นหาเลย</strong>
-              ลองเปลี่ยนสี หรือล้างตัวกรองดูนะคะ
+              <strong>{th.shop.noResultsTitle}</strong>
+              {th.shop.noResultsHint}
             </div>
           )}
         </div>
