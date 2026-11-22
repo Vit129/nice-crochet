@@ -1,0 +1,19 @@
+tests/search.test.ts
+  s_8e84e91900f7d9::t_de374d8cc3724c 5,27,31,43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "43ed80b3a0f6899c925f337bd0e4c509bb87905d",
+  "prompts": {},
+  "sessions": {
+    "s_8e84e91900f7d9": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a201cf-5241-70e0-a5fe-dcf07172d8e9",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
