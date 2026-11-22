@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { getExpandedKeywords, searchProducts, tokenizeQuery } from '../src/lib/search';
+import { SYNONYM_MAP } from '../src/strings/searchKeywords';
 import type { Product } from '../src/types/product';
 
 const base = { photos: [] as string[], alt: '', showOnShelf: true, showOnHome: false };
@@ -23,11 +24,11 @@ test('tokenizeQuery: lowercases and splits on whitespace', () => {
 });
 
 test('getExpandedKeywords: English expands to Thai synonyms', () => {
-  assert.ok(getExpandedKeywords('strawberry').includes('สตรอเบอร์รี่'));
+  assert.ok(getExpandedKeywords('strawberry').includes(SYNONYM_MAP.strawberry[2]));
 });
 
 test('getExpandedKeywords: Thai expands to the English concept', () => {
-  assert.ok(getExpandedKeywords('แครอท').includes('carrot'));
+  assert.ok(getExpandedKeywords(SYNONYM_MAP.carrot[2]).includes('carrot'));
 });
 
 test('searchProducts: empty query returns everything in order', () => {
@@ -39,7 +40,7 @@ test('searchProducts: finds by name, ranks the direct hit first', () => {
 });
 
 test('searchProducts: Thai query finds the English-named product', () => {
-  assert.ok(ids(searchProducts(products, 'แครอท')).includes('carrot'));
+  assert.ok(ids(searchProducts(products, SYNONYM_MAP.carrot[2])).includes('carrot'));
 });
 
 test('searchProducts: category filter', () => {
