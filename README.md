@@ -1,48 +1,36 @@
 # Nice Crochet
 
-Portfolio/showcase site for the handmade crochet brand [@yukiandnice](https://www.tiktok.com/@yukiandnice) on TikTok and [@nic.ecrochet](https://www.instagram.com/nic.ecrochet/) on Instagram — browse the catalog by category and colour, no cart or checkout. Anyone who wants a piece still reaches out over TikTok or Instagram DM.
+A static Next.js showcase for browsing crochet products. It has Home, Shelf, and About views; there is no cart or checkout.
 
-**Live: https://vit129.github.io/nice-crochet/** — every push to `main` redeploys automatically via GitHub Actions.
+## Run
 
-## Pages
-
-- **Home** — hero carousel featuring hand-picked pieces per category
-- **Shelf** — full catalog: search, filter by category/colour, sort by newest or most-viewed
-- **About me** — the maker's story and TikTok/Instagram contact links
-
-Clicking any piece opens a lightbox with all of its photos.
-
-## Stack
-
-Static export (Next.js, `output: 'export'`) — no server, no database. See [`ARCHITECTURE.md`](./ARCHITECTURE.md) for the full reasoning (why static over a framework-hosted app, the image pipeline, the click-tracking backend) and [`DESIGN.md`](./DESIGN.md) for the visual design system and its decision history.
-
-## Run locally
-
-```bash
+```sh
 npm install
-npm run dev        # http://localhost:3000
+npm run dev
 ```
 
-If a previous dev server didn't shut down cleanly (stale process still on port 3000, or a half-deleted `.next` cache), use `npm run dev:clean` instead — it stops whatever's on the port and clears `.next` before starting.
+Open <http://localhost:3000>.
 
-`npm run build` runs catalog validation (`products.json` against `public/images/`) before the static export — a broken catalog reference fails the build instead of shipping silently.
+## Test and build
 
-## Adding new photos
-
-Raw source photos live in `PRODUCTS/` (gitignored, never committed — real source material, not derived output). To add new pieces to the site:
-
-```bash
-bash scripts/build-images.sh   # HEIC → 3 WebP sizes into public/images/
+```sh
+npm test
+npm run build
 ```
 
-Then add the corresponding entry to `products.json` (the single source of truth for the catalog — see `ARCHITECTURE.md`'s data model section for the schema and the `showOnShelf`/`showOnHome` flags).
+The build validates `products.json` and referenced images before creating the static export in `out/`.
 
-## License
+## Folder map
 
-- **Source Code**: [MIT License](./LICENSE)
-- **Content, Images & Brand**: Copyright (c) 2026 Supavit Choenthanomwong (Vit129). All rights reserved.
-# Local development and release
+- `src/app/` — Next.js entry points and global CSS
+- `src/components/` — page and UI components
+- `src/config/` — colour token files
+- `src/lib/` — search, asset paths, and click-tracking integration
+- `src/strings/` — Thai UI copy and search terms
+- `src/types/` — product and category types
+- `tests/` — Node tests
+- `scripts/` — catalog validation, image build, and local server scripts
+- `products.json` — product catalog
+- `public/` — static images and other assets
 
-Use `make start` (or `npm run dev`) for the loopback-only dev server. `make preview` builds and serves the production bundle on `127.0.0.1:4173`. Before publishing, run `make release-check`, which runs `npm test`, catalog validation, and the production build. Pull request CI and the Pages workflow run the same gates before the Pages deployment job.
-
-The GitHub Pages workflow is the website release path. Apps Script is a separate integration: its `gas:push` and `gas:deploy` commands affect the configured Apps Script project and are not part of website release. Use `npm run gas:deploy` only when intentionally publishing that integration.
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for layer boundaries and the literal placement rules.
