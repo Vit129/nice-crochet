@@ -1,0 +1,21 @@
+CHANGELOG.md
+  s_596b58ee2f71b6::t_37a23e9aa0dc1e 6-15
+package.json
+  s_596b58ee2f71b6::t_b9578596202169 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "393727bb949359e30d0c00cd5f3be9a32bf70549",
+  "prompts": {},
+  "sessions": {
+    "s_596b58ee2f71b6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_596b58ee2f71b6",
+        "model": "unknown"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
