@@ -36,6 +36,8 @@ These are review commands, not automated gates. In the current source, `src/type
 
 `src/app/layout.tsx` keeps the Google Fonts preconnects and stylesheet link so the browser loads the same Baloo 2, Karla, and IBM Plex Mono resources. They are browser resource declarations; `clickTracking.ts` requests app data and cannot provide stylesheet/preconnect loading without changing behavior.
 
+`ResponsiveImage` uses native `<img>` loading for its `http` and `data:` sources (and path-prefixed local sources); this is part of rendering image content, not component-managed network I/O. Keep these native resource declarations when preserving their current rendering behavior.
+
 ## Runtime data and I/O
 
 - `src/app/page.tsx` imports `products.json`, applies optional live product-flag overrides from `fetchProductFlags()`, and passes the resulting products to the page components.
