@@ -3,6 +3,16 @@
 All notable changes to Nice Crochet are documented here. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.5.1] - 2026-11-22
+
+### Documentation
+- Add CONTEXT.md, ADRs, and agent skills docs ([`7d8db76`](https://github.com/Vit129/nice-crochet/commit/7d8db76a3008ff30ad50254b350eda8727d3c652))
+- Enrich ARCHITECTURE.md with Dev & QA quality gates ([`011c1cb`](https://github.com/Vit129/nice-crochet/commit/011c1cb446ab1db0552f3dfb58f09d031b168481))
+- Adopt AGENTS.md as canonical instruction file ([`2d3a79a`](https://github.com/Vit129/nice-crochet/commit/2d3a79a0819f2282cf8db002a10650b5edcda907))
+- Document agent-memory location in agent-memory-private ([`d6f3df7`](https://github.com/Vit129/nice-crochet/commit/d6f3df786b51166b782c0cd2145a3e523d2869e1))
+- Add split MIT and All-Rights-Reserved license ([`1fad809`](https://github.com/Vit129/nice-crochet/commit/1fad8091d36c1de503d572e16ee758f663fbb679))
+- Point agent memory path to unified-memory-vault ([#21](https://github.com/Vit129/nice-crochet/pull/21)) ([`da4fabd`](https://github.com/Vit129/nice-crochet/commit/da4fabd10336b9ef9eed94c20855b1a1bb35ad15))
+
 ## [0.5.0] - 2026-09-06
 
 ### Added
