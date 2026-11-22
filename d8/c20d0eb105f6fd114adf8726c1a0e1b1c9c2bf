@@ -1,0 +1,22 @@
+README.md
+  s_6d055ce1deef08::t_7d91a04c39aec5 3,5,7,9,12,14,16-18,21,23,25-34,36
+ARCHITECTURE.md
+  s_6d055ce1deef08::t_9180ed35817f5d 1,3,5,7-16,18,20-22,24,26-27,29,31,33,35,37-40,42,44-50,52
+  s_6d055ce1deef08::t_195f2ad00a9403 28,30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.7",
+  "base_commit_sha": "d8c20d0eb105f6fd114adf8726c1a0e1b1c9c2bf",
+  "prompts": {},
+  "sessions": {
+    "s_6d055ce1deef08": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a201a7-5089-7503-85bb-8d531f77bfd2",
+        "model": "gpt-6-luna"
+      },
+      "human_author": "Vit129 <vitosk129@gmail.com>"
+    }
+  }
+}
