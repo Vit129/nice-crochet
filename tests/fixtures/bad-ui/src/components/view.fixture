@@ -1,8 +1,0 @@
-// fetch('/comment-only') must be ignored.
-export function view() {
-  fetch('/api');
-  localStorage.getItem('x');
-  sessionStorage.getItem('x');
-  new XMLHttpRequest();
-  navigator.sendBeacon('/beacon');
-}
